@@ -11,7 +11,7 @@ var songsController = require('../controllers/songsController');
 
 router.route('/producers')
   .get(producersController.producersIndex)
-  // .post(producersController.producersCreate)
+  .post(producersController.producersCreate)
 
 router.route('/producers/:id')
   .get(producersController.producersShow)

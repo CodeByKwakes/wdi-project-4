@@ -7,6 +7,16 @@ function producersIndex(req, res){
   });
 }
 
+function producersCreate(req, res){
+  var producer = new Producer(req.body)
+  producer.save(function(err, producer){
+    if (err) return res.status(500).json({ message: 'Something went wrong!!'});
+
+    res.status(201).json({ message: 'User Successfully Updated.', producer: producer})
+
+  })
+}
+
 function producersShow(req, res){
   Producer.findById(req.params.id, function(err, producer){
     if (err) return res.status(404).json({ message: 'Something went wrong!!'});
@@ -39,7 +49,7 @@ function producersDelete(req, res){
 
 module.exports = {
   producersIndex:   producersIndex,
-  // producersCreate:  producersCreate,
+  producersCreate:  producersCreate,
   producersShow:    producersShow,
   producersUpdate:  producersUpdate,
   producersDelete:  producersDelete
