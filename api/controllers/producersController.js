@@ -35,6 +35,7 @@ function producersUpdate(req, res){
     if (req.body.local.image) producer.local.image            = req.body.local.image;
     if (req.body.local.email) producer.local.email            = req.body.local.email;
     if (req.body.local.password) producer.local.password      = req.body.local.password;
+    if (req.body.local.song) producer.local.song              = req.body.local.song;
     if (req.body.local.contact.location) producer.local.contact.location = req.body.local.contact.location;
     if (req.body.local.contact.country) producer.local.contact.country = req.body.local.contact.country;
 
