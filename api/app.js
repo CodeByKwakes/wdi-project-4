@@ -1,19 +1,19 @@
 // NPM Packages
-var express = require('express');
-var cors = require('cors');
-var bodyParser = require('body-parser');
-var morgan = require('morgan');
-var mongoose = require('mongoose');
-var methodOverride = require('method-override');
+var express         = require('express');
+var cors            = require('cors');
+var bodyParser      = require('body-parser');
+var morgan          = require('morgan');
+var mongoose        = require('mongoose');
+var methodOverride  = require('method-override');
 
-var app = express();
+var app             = express();
 
 // Database
-var databaseURL = 'mongodb://localhost:27017/beatsity';
+var databaseURL     = 'mongodb://localhost:27017/beatsity';
 mongoose.connect(databaseURL);
 
 // Routes
-var routes = require('./config/routes');
+var routes          = require('./config/routes');
 
 // Middleware
 app.use(cors());
