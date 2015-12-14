@@ -15,7 +15,7 @@ router.route('/producers')
 
 router.route('/producers/:id')
   .get(producersController.producersShow)
-  .patch(producersController.producersUpdate)
+  .put(producersController.producersUpdate)
   .delete(producersController.producersDelete)
 
 // Song Routes
