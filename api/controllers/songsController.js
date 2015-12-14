@@ -1,59 +1,57 @@
 var Song = require('../models/song');
-var Producer = require('../models/producer');
+// var Producer = require('../models/producer');
 
 function songsIndex(req, res){
-  Song.find({}, function(err, songs){
-    if (err) return res.status(404).send(err);
-    console.log("Number 1");
-    res.status(200).send(songs);
+  Song.find(function(err, songs){
+    if (err) return res.status(404).json({message: 'Something went wrong!!'});
+    
+    res.status(200).json({ songs: songs });
   });
 }
 
 function songsCreate(req, res){
-  var song = new Song(req.body.song);
-  console.log("Number 2");
+  var song = new Song(req.body)
 
-  song.save(function(err){
-    if (err) return res.status(500).json(err);
+  song.save(function(err, song){
+    if (err) return res.status(500).json({ message: 'Something went wrong!!'});
 
-    var name = req.body.song.producer;
-
-    Producer.findOne({ name: name}, function(err, producer){
-      producer.songs.push(song);
-      producer.save();
-    });
-    res.status(201).json(song)
+    res.status(201).json({ message: 'Song has been created', song: song});
   });
-  console.log("Number 3");
 }
 
 function songsShow(req, res){
-  var id = req.params.id;
+  Song.findById(req.params.id, function(err, song){
+    if (err) return res.status(404).json({ message: 'Something went wrong!!'});
 
-  Song.findById({_id: id }, function(err, song){
-    if (err) return res.status(500).send(err);
-    if (!song) return res.status(404).send(err);
-
-    res.status(200).send(song)
-  })
+    res.status(200).json({ song: song});
+  });
 }
 
 function songsUpdate(req, res){
-  var id = req.params.id;
+  Song.findById(req.params.id, function(err, song){
+    if (err) return res.status(500).json({ message: 'Something went wrong!!'});
+    if (!song) return res.status(404).json({ message: 'No Song Found???'});
 
-  Song.findByIdAndUpdate({_id: id }, req.body.song, function(err, song){
-    if (err) return res.status(500).send(err);
-    if (!song) return res.status(404).send(err);
+    if (req.body.title)      song.title       = req.body.title;
+    if (req.body.image)      song.image       = req.body.image;
+    if (req.body.genre)      song.genre       = req.body.genre;
+    if (req.body.bpm)        song.bpm         = req.body.bpm;
+    if (req.body.created_at) song.created_at  = req.body.created_at;
+    if (req.body.updated_at) song.updated_at  = req.body.updated_at;
 
-    res.status(200).send(song);
-  })
+    song.save(function(err){
+      if (err) return res.status(500).json({ message: 'Something went wrong!!!'});
+
+      res.status(201).json({ message: 'Song Updated', song: song})
+    });
+  });
 }
-function songsDelete(req, res){
-  var id = req.params.id;
 
-  Song.remove({ _id: id }, function(err){
-    if (err) return res.status(500).send(err);
-    res.status(200)
+function songsDelete(req, res){
+  Song.findByIdAndRemove({_id: req.params.id}, function(err){
+    if (err) return res.status(404).json({ message: 'Something went wrong!!'});
+
+    res.status(200).json({ message: ' Song has been deleted'});
   })
 }
 
