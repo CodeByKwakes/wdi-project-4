@@ -20,14 +20,14 @@ router.route('/producers/:id')
 
 // Song Routes
 
-// router.route('/songs')
-//   .get(songsController.songsIndex)
-//   .post(songsController.songsCreate)
+router.route('/songs')
+  .get(songsController.songsIndex)
+  .post(songsController.songsCreate)
 
-// router.route('/songs/:id')
-//   .get(songsController.songsShow)
-//   .patch(songsController.songsUpdate)
-//   .delete(songsController.songsDelete)
+router.route('/songs/:id')
+  .get(songsController.songsShow)
+  .put(songsController.songsUpdate)
+  .delete(songsController.songsDelete)
 
 module.exports = router;
 

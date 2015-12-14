@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 
 var songSchema = new mongoose.Schema({
-  producer_id:
-  title: { type: String, required: true },
+  title: String,
   image: String,
   genre: String,
   bpm: String,
