@@ -8,9 +8,10 @@ var methodOverride  = require('method-override');
 
 var app             = express();
 
+var config          = require('./config/config');
+
 // Database
-var databaseURL     = 'mongodb://localhost:27017/beatsity';
-mongoose.connect(databaseURL);
+mongoose.connect(config.database);
 
 // Routes
 var routes          = require('./config/routes');
