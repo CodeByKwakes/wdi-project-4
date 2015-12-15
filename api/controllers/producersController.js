@@ -1,12 +1,5 @@
 var Producer    = require('../models/producer');
 
-// function producersIndex(req, res){
-//   Producer.find(function(err, producers){
-//     if (err) return res.status(404).json({message: 'Something went wrong!!'});
-//     res.status(200).json({ producers: producers });
-//   });
-// }
-
 function producersIndex(req, res){
   Producer.find().populate('local.songs').exec(function(err, producers){
     if (err) return res.status(404).json({message: 'Something went wrong!!'});
@@ -22,13 +15,6 @@ function producersCreate(req, res){
     res.status(201).json({ message: 'A New Producer has been successfully created.', producer: producer})
   })
 }
-
-// function producersShow(req, res){
-//   Producer.findById(req.params.id, function(err, producer){
-//     if (err) return res.status(404).json({ message: 'Something went wrong!!'});
-//     res.status(200).json({ producer: producer});
-//   });
-// }
 
 function producersShow(req, res){
   Producer.findById(req.params.id).populate('local.songs').exec(function(err, producer){

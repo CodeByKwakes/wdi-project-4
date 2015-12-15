@@ -1,5 +1,5 @@
-var Song = require('../models/song');
-var Producer = require('../models/producer');
+var Song      = require('../models/song');
+var Producer  = require('../models/producer');
 
 function songsIndex(req, res){
   Song.find(function(err, songs){

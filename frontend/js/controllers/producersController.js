@@ -17,16 +17,16 @@ angular
 
     function getProducers(){
       $http
-        .get('http://localhost:3000/api/producers')
-        .then(function(response){
-          self.all = response.data.producers;
-          console.log(self.all);
-          console.log(response)
-        });
+      .get('http://localhost:3000/api/producers')
+      .then(function(response){
+        self.all = response.data.producers;
+        console.log(self.all);
+        console.log(response)
+      });
     }
     
     function addProducer(){
-    $http
+      $http
       .post('http://localhost:3000/api/producers', { producer: self.newProducer })
       .then(function(response){
         self.all.push(self.newProducer);
@@ -34,12 +34,11 @@ angular
     }
 
     function deleteProducer(producer){
-    $http
+      $http
       .delete('http://localhost:3000/producers/' + producer._id)
       .then(function(response){
         var index = self.all.indexOf(producer);
         self.all.splice(index, 1);
-
       });
     }
 
@@ -47,7 +46,6 @@ angular
       self.producer = {};
       console.log(self.producer);
     }
-    
   getProducers();
 }
 
