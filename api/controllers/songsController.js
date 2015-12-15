@@ -1,10 +1,8 @@
 var Song = require('../models/song');
-// var Producer = require('../models/producer');
 
 function songsIndex(req, res){
   Song.find(function(err, songs){
     if (err) return res.status(404).json({message: 'Something went wrong!!'});
-    
     res.status(200).json({ songs: songs });
   });
 }
@@ -14,7 +12,6 @@ function songsCreate(req, res){
 
   song.save(function(err, song){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
-
     res.status(201).json({ message: 'Song has been created', song: song});
   });
 }
@@ -22,7 +19,6 @@ function songsCreate(req, res){
 function songsShow(req, res){
   Song.findById(req.params.id, function(err, song){
     if (err) return res.status(404).json({ message: 'Something went wrong!!'});
-
     res.status(200).json({ song: song});
   });
 }
@@ -41,7 +37,6 @@ function songsUpdate(req, res){
 
     song.save(function(err){
       if (err) return res.status(500).json({ message: 'Something went wrong!!!'});
-
       res.status(201).json({ message: 'Song Updated', song: song})
     });
   });
@@ -50,7 +45,6 @@ function songsUpdate(req, res){
 function songsDelete(req, res){
   Song.findByIdAndRemove({_id: req.params.id}, function(err){
     if (err) return res.status(404).json({ message: 'Something went wrong!!'});
-
     res.status(200).json({ message: ' Song has been deleted'});
   })
 }

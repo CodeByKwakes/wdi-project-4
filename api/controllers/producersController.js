@@ -12,7 +12,6 @@ function producersCreate(req, res){
 
   producer.save(function(err, producer){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
-
     res.status(201).json({ message: 'A New Producer has been successfully created.', producer: producer})
   })
 }
@@ -35,13 +34,12 @@ function producersUpdate(req, res){
     if (req.body.local.image) producer.local.image            = req.body.local.image;
     if (req.body.local.email) producer.local.email            = req.body.local.email;
     if (req.body.local.password) producer.local.password      = req.body.local.password;
-    if (req.body.local.song) producer.local.song              = req.body.local.song;
+    // if (req.body.local.song) producer.local.song              = req.body.local.song;
     if (req.body.local.contact.location) producer.local.contact.location = req.body.local.contact.location;
     if (req.body.local.contact.country) producer.local.contact.country = req.body.local.contact.country;
 
     producer.save(function(err){
       if (err) return res.status(500).json({ message: 'Something went wrong!!'});
-
       res.status(201).json({ message: 'Producer Profile Updated.', producer: producer})
     });    
   });
