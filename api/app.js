@@ -28,7 +28,8 @@ app.use(methodOverride(function(req, res){
     return method;
   }
 }));
-app.use(routes);
+// app.use(routes);
+app.use("/api", routes);
 
 // Listening on correct PORT
 app.listen(process.env.PORT || 3000);
