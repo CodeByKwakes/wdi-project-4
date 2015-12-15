@@ -11,7 +11,7 @@ var clientSchema = new mongoose.Schema({
     website: String,
     image: String,
   },
-  contests: [{ type: mongoose.Schema.ObjectId, ref: 'Song' }]
+  contests: [{ type: mongoose.Schema.ObjectId, ref: 'Contest' }]
 })
 
 module.exports = mongoose.model('Client', clientSchema);

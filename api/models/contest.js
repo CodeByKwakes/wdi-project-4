@@ -23,13 +23,13 @@ var contestSchema = new mongoose.Schema({
       end_date: Date,
       end_time: Number,
     },
-    Judging: {
+    judging: {
       start_date: Date,
       start_time: Number,
       end_date: Date,
       end_time: Number,
     },
-    Winner: {
+    winner: {
       date: Date,
       time: Number,
     },
