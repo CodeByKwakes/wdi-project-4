@@ -1,7 +1,7 @@
 var Client = require('../models/client');
 
 function clientsIndex(req, res){
-  Client.find(function(err, clients){
+  Client.find().populate('contests').exec(function(err, clients){
     if (err) return res.status(404).json({message: 'Something went wrong!!'});
     res.status(200).json({ clients: clients });
   });
@@ -17,10 +17,10 @@ function clientsCreate(req, res){
 }
 
 function clientsShow(req, res){
-  Client.findById(req.params.id, function(err, client){
+  Client.findById(req.params.id).populate('contests').exec(function(err, client){
     if (err) return res.status(404).json({ message: 'Something went wrong!!'});
     res.status(200).json({ client: client});
-  });
+  })
 }
 
 function clientsUpdate(req, res){
@@ -32,7 +32,7 @@ function clientsUpdate(req, res){
     if (req.body.email)    client.email      = req.body.email;
     if (req.body.password) client.password   = req.body.password;
     if (req.body.industry) client.industry   = req.body.industry;
-    if (req.body.contests) client.contests   = req.body.contests;
+    // if (req.body.contests) client.contests   = req.body.contests;
 
     if (req.body.contact.location)        client.contact.location                             = req.body.contact.location;
     if (req.body.prizes.contact.country)  client.prizes.contact.country                       = req.body.prizes.contact.country;
