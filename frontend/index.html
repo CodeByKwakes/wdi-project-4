@@ -52,6 +52,11 @@
       <li ng-repeat="producer in producers.all" data-id="{{producer._id}}">
         <strong>{{producer.local.username}}</strong> <em>{{producer.local.email}}</em>
         <button class='delete' ng-click="producers.deleteProducer(producer)">Delete</button>
+        <ul>
+          <li ng-repeat="song in producer.local.songs">
+            {{song.title}}
+          </li>
+        </ul>
       </li>
     </ul>
 

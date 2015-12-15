@@ -1,4 +1,5 @@
 var Song = require('../models/song');
+var Producer = require('../models/producer');
 
 function songsIndex(req, res){
   Song.find(function(err, songs){
@@ -12,6 +13,10 @@ function songsCreate(req, res){
 
   song.save(function(err, song){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
+    Producer.findOne({_id: req.body.producer_id}, function(err, producer){
+      producer.local.songs.push(song);
+      producer.save();
+    });
     res.status(201).json({ message: 'Song has been created', song: song});
   });
 }
