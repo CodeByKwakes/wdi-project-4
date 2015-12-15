@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>BeatSity</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <script type="text/javascript" src="./js/app.js"></script>
+  <!-- // <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script> -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/producersController.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
+<body ng-app='BeatSity' ng-controller='ProducersController as producers'>
+  <h1>Producers</h1>
+  <nav class="tabs">
+    <!-- <a ui-sref-active="active" ui-sref="home" ng-click="producers.producerReset()">Add Producer</a> -->
+    <a ui-sref-active="active" ui-sref="producers">See Producers</a>
+    <!-- <a ui-sref-active="active" ui-sref="about">About</a> -->
+  </nav>
+  <section>
+    <!-- <ul ng-show="producers.producer" id="producers">
+      <li data-id="{{producers.newProducer._id}}">
+        <strong>{{producers.producer.username}}</strong> <em>{{producers.producer.location}}</em> <span ng-show="producers.producer.status" class='status {{producers.producer.status | lowercase }}'>{{producers.producer.status | uppercase}}</span>
+      </li>
+    </ul> -->
+
+    <!-- <form ng-submit="producers.addProducer()" id="newProducer">
+      <div>
+        <label for="newProducer-name">Name:</label>
+        <input type="text" id="newProducer-name" ng-model="producers.newProducer.name" placeholder="Prof. Moriarty">
+      </div>
+      <div>
+        <label for="newProducer-location">Location:</label>
+        <input type="text" id="newProducer-location" ng-model="producers.newProducer.location" placeholder="Reichenbach Falls, CH">
+      </div>
+      <div>
+        <label for="newProducer-status">Status:</label>
+        <select id="newProducer-status" ng-model='producers.newProducer.status'>
+          <option value="" disabled>- - Please Select One - -</option>
+          <option value="Alive">Alive</option>
+          <option value="Dead">Dead</option>
+          <option value="Unknown" selected>Unknown</option>
+        </select>
+      </div>
+      <div>
+        <input type="submit" value="Add Producer">
+      </div>
+    </form> -->
+
+    <ul id="producers">
+      <h1>BeatSity Producers</h1>
+      <li ng-repeat="producer in producers.all" data-id="{{producer._id}}">
+        <strong>{{producer.local.username}}</strong> <em>{{producer.local.email}}</em>
+        <button class='delete' ng-click="producers.deleteProducer(producer)">Delete</button>
+      </li>
+    </ul>
+
+
+  </section>
 </body>
+
 </html>
