@@ -32,6 +32,7 @@ function clientsUpdate(req, res){
     if (req.body.email)    client.email      = req.body.email;
     if (req.body.password) client.password   = req.body.password;
     if (req.body.industry) client.industry   = req.body.industry;
+    if (req.body.contests) client.contests   = req.body.contests;
 
     if (req.body.contact.location)        client.contact.location                             = req.body.contact.location;
     if (req.body.prizes.contact.country)  client.prizes.contact.country                       = req.body.prizes.contact.country;
