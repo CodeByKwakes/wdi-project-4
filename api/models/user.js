@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
-var producerSchema = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
   local: {
     username: { type: String, unique: true },
     first_name: { type: String },
@@ -19,14 +19,14 @@ var producerSchema = new mongoose.Schema({
   }
 });
 
-producerSchema.statics.encrypt = function(password){
+userSchema.statics.encrypt = function(password){
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-producerSchema.methods.validPassword = function(password){
+userSchema.methods.validPassword = function(password){
   return bcrypt.compareSync(password, this.local.password);
 }
 
-module.exports = mongoose.model('Producer', producerSchema);
+module.exports = mongoose.model('User', userSchema);
 
 

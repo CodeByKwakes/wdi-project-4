@@ -2,24 +2,24 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-var producersController = require('../controllers/producersController');
+var usersController = require('../controllers/usersController');
 var songsController     = require('../controllers/songsController');
-var clientsController   = require('../controllers/clientsController');
+// var clientsController   = require('../controllers/clientsController');
 var contestsController  = require('../controllers/contestsController');
 var authenticationsController = require('../controllers/authenticationsController');
 
 router.post('/login', authenticationsController.login);
 router.post('/register', authenticationsController.register);
 
-// Producer Routes
-router.route('/producers')
-  .get(producersController.producersIndex)
-  .post(producersController.producersCreate)
+// User Routes
+router.route('/users')
+  .get(usersController.usersIndex)
+  .post(usersController.usersCreate)
 
-router.route('/producers/:id')
-  .get(producersController.producersShow)
-  .put(producersController.producersUpdate)
-  .delete(producersController.producersDelete)
+router.route('/users/:id')
+  .get(usersController.usersShow)
+  .put(usersController.usersUpdate)
+  .delete(usersController.usersDelete)
 
 // Song Routes
 router.route('/songs')
@@ -31,15 +31,15 @@ router.route('/songs/:id')
   .put(songsController.songsUpdate)
   .delete(songsController.songsDelete)
 
-// Client Routes
+/*Client Routes
 router.route('/clients')
   .get(clientsController.clientsIndex)
-  // .post(clientsController.clientsCreate)
+  .post(clientsController.clientsCreate)
 
 router.route('/clients/:id')
   .get(clientsController.clientsShow)
   .put(clientsController.clientsUpdate)
-  .delete(clientsController.clientsDelete)
+  .delete(clientsController.clientsDelete)*/
 
 // Contest Routes
 router.route('/contests')

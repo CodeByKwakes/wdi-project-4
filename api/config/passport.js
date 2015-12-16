@@ -1,5 +1,5 @@
 var LocalStrategy = require('passport-local').Strategy;
-var Producer      = require('../models/producer');
+var User      = require('../models/user');
 
 module.exports = function(passport){
 
@@ -9,22 +9,22 @@ module.exports = function(passport){
     passReqToCallback: true,
   }, function(req, email, password, done){
 
-    Producer.findOne({ 'local.email' : email }, function(err, producer){
+    User.findOne({ 'local.email' : email }, function(err, user){
       if (err) return done(err, false, { message: "Something went very wrong!!!"});
 
-      if (producer) return done(null, false, { message: "Please choose another email." });
+      if (user) return done(null, false, { message: "Please choose another email." });
 
-      var newProducer = new Producer();
-      newProducer.local.email      = email;
-      newProducer.local.username   = req.body.username;
-      newProducer.local.first_name = req.body.first_name;
-      newProducer.local.last_name  = req.body.last_name;
-      newProducer.local.image      = req.body.image;
-      newProducer.local.password   = Producer.encrypt(password);
+      var newUser = new User();
+      newUser.local.email      = email;
+      newUser.local.username   = req.body.username;
+      newUser.local.first_name = req.body.first_name;
+      newUser.local.last_name  = req.body.last_name;
+      newUser.local.image      = req.body.image;
+      newUser.local.password   = User.encrypt(password);
 
-      newProducer.save(function(err, producer){
+      newUser.save(function(err, user){
         if (err) return done(err, false, { message: "Something went wrong!!!"});
-        return done(null, producer);
+        return done(null, user);
       });
     });
   }));
