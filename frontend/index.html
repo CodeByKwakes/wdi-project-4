@@ -15,24 +15,38 @@
   <script type="text/javascript" src="./js/models/producer.js"></script>
   <script type="text/javascript" src="./js/controllers/producersController.js"></script>
 <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="stylesheet" type="text/css" href="./css/reset.css">
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body ng-controller="ProducersController as producers">
 <!-- Header -->
   <header>
     <nav>
       <div class="pure-menu pure-menu-horizontal">
-        <a href="#" class="pure-menu-heading pure-menu-link" ui-sref-active="active" ui-sref="home"><h1>LOGGING</h1></a>
+        <a href="#" class="pure-menu-heading pure-menu-link" ui-sref-active="active" ui-sref="home"><h1>BeatSity</h1></a>
         <ul class="pure-menu-list">
-          <li ng-hide="producers.checkLoggedIn()"class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref-active="active" ui-sref="login">Login</a></li>
-          <li ng-hide="producers.checkLoggedIn()" class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref-active="active" ui-sref="register">Register</a></li>
-          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref-active="active" ui-sref="profile">My Profile</a></li>
-          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref-active="active" ui-sref="producers">Producers</a></li>
-          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref="home" ng-click="producers.logout()">Logout</a></li>
+          <li ng-hide="producers.checkLoggedIn()"class="pure-menu-item">
+          <a href="#login" class="pure-menu-link" ui-sref-active="active" ui-sref="login">Login</a>
+          </li>
+
+          <li ng-hide="producers.checkLoggedIn()" class="pure-menu-item">
+          <a href="#register" class="pure-menu-link" ui-sref-active="active" ui-sref="register">Register</a>
+          </li>
+
+          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item">
+          <a href="#profile" class="pure-menu-link" ui-sref-active="active" ui-sref="profile">My Profile</a>
+          </li>
+
+          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item">
+          <a href="#producers" class="pure-menu-link" ui-sref-active="active" ui-sref="producers">Producers</a>
+          </li>
+
+          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item">
+          <a href="#logout" class="pure-menu-link" ui-sref="home" ng-click="producers.logout()">Logout</a>
+          </li>
         </ul>
       </div>
     </nav>

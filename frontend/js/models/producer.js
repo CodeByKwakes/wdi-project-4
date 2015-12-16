@@ -3,7 +3,7 @@ angular
   .factory('Producer', Producer);
 
 Producer.$inject = ['$resource', 'API'];
-function Producer($resource, API) {
+function Producer($resource, API){
 
   return $resource(
     API+'/producers/:id',

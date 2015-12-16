@@ -26,6 +26,10 @@ angular
         url: "/producers",
         templateUrl: "producers.html"
       })
+      .state('profile', {
+        url: "/profile",
+        templateUrl: "profile.html"
+      })
       .state('songs', {
         url: "/songs",
         templateUrl: "songs.html"
