@@ -7,6 +7,16 @@
         <legend>Register</legend>
 
         <div class="form-group">
+          <label for="type" class="col-lg-2 col-lg-offset-2 control-label">Please select your account type:</label>
+          <div class="col-lg-4">
+            <select class="form-control" id="type" name="type" ng-model="users.user.type">
+              <option value="user">Producer</option>
+              <option value="client">Client</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
           <label for="username" class="col-lg-2 col-lg-offset-2 control-label">Username</label>
           <div class="col-lg-4">
             <input type="text" class="form-control" name="Username" id="inputEmail" placeholder="Username" ng-model="users.user.username">
