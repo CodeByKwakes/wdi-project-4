@@ -14,7 +14,7 @@ var app            = express();
 
 var config         = require('./config/config');
 var User           = require('./models/user');
-var Client         = require('./models/client');
+// var Client         = require('./models/client');
 var secret         = require('./config/config').secret;
 
 

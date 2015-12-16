@@ -1,5 +1,5 @@
 var Contest = require('../models/contest');
-var Client = require('../models/client');
+var User = require('../models/user');
 
 function contestsIndex(req, res){
   Contest.find(function(err, contests){
@@ -13,9 +13,9 @@ function contestsCreate(req, res){
 
   contest.save(function(err, contest){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
-    Client.findOne({_id: req.body.client_id}, function(err, client){
-      client.contests.push(contest);
-      client.save();
+    User.findOne({_id: req.body.user_id}, function(err, user){
+      user.local.contests.push(contest);
+      user.save();
     });
     res.status(201).json({ message: 'A New Contest has been successfully created.', contest: contest})
   });

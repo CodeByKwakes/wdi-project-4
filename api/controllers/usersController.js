@@ -4,7 +4,12 @@ function usersIndex(req, res){
   User.find().populate('local.songs').exec(function(err, users){
     if (err) return res.status(404).json({message: 'Something went wrong!!'});
     res.status(200).json({ users: users });
-  })
+  });
+/*  User.find().populate('local.contests').exec(function(err, users){
+    if (err) return res.status(404).json({message: 'Something went wrong!!'});
+    res.status(200).json({ users: users });
+  });*/
+
 }
 
 function usersCreate(req, res){
@@ -18,6 +23,11 @@ function usersCreate(req, res){
 
 function usersShow(req, res){
   User.findById(req.params.id).populate('local.songs').exec(function(err, user){
+    if (err) return res.status(404).json({ message: 'Something went wrong!!'});
+    res.status(200).json({ user: user});
+  })
+
+  User.findById(req.params.id).populate('local.contests').exec(function(err, user){
     if (err) return res.status(404).json({ message: 'Something went wrong!!'});
     res.status(200).json({ user: user});
   })
@@ -37,6 +47,7 @@ function usersUpdate(req, res){
     // if (req.body.local.song) user.local.song              = req.body.local.song;
     if (req.body.local.contact.location) user.local.contact.location = req.body.local.contact.location;
     if (req.body.local.contact.country) user.local.contact.country = req.body.local.contact.country;
+    if (req.body.local.contact.website) user.local.contact.website = req.body.local.contact.website;
 
     user.save(function(err){
       if (err) return res.status(500).json({ message: 'Something went wrong!!'});
