@@ -9,7 +9,6 @@ function clientsIndex(req, res){
 
 function clientsCreate(req, res){
   var client  = new Client(req.body)
-
   client.save(function(err, client){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
     res.status(201).json({ message: 'A New Client has been successfully created.', client: client})

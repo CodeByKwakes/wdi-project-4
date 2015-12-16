@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KwakesProject/wdi-project-4#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
     "cookie-parser": "^1.4.0",
     "cors": "^2.7.1",
