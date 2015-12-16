@@ -8,49 +8,66 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
   <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- Internal Files -->
   <script type="text/javascript" src="./js/app.js"></script>
   <script type="text/javascript" src="./js/services/tokenService.js"></script>
   <script type="text/javascript" src="./js/services/authInterceptor.js"></script>
   <script type="text/javascript" src="./js/models/producer.js"></script>
+  <script type="text/javascript" src="./js/models/song.js"></script>
   <script type="text/javascript" src="./js/controllers/producersController.js"></script>
+  <script type="text/javascript" src="./js/controllers/songsController.js"></script>
 <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="stylesheet" type="text/css" href="./css/reset.css">
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'>
 </head>
 <body ng-controller="ProducersController as producers">
 <!-- Header -->
   <header>
-    <nav>
-      <div class="pure-menu pure-menu-horizontal">
-        <a href="#" class="pure-menu-heading pure-menu-link" ui-sref-active="active" ui-sref="home"><h1>BeatSity</h1></a>
-        <ul class="pure-menu-list">
-          <li ng-hide="producers.checkLoggedIn()"class="pure-menu-item">
-          <a href="#login" class="pure-menu-link" ui-sref-active="active" ui-sref="login">Login</a>
-          </li>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-  target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#home" ui-sref="home">BeatSity</a>
+        </div>
 
-          <li ng-hide="producers.checkLoggedIn()" class="pure-menu-item">
-          <a href="#register" class="pure-menu-link" ui-sref-active="active" ui-sref="register">Register</a>
-          </li>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active" ng-hide="producers.checkLoggedIn()">
+              <a href="#login">Login <span class="sr-only"></span></a>
+            </li>
 
-          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item">
-          <a href="#profile" class="pure-menu-link" ui-sref-active="active" ui-sref="profile">My Profile</a>
-          </li>
+            <li class="active" ng-hide="producers.checkLoggedIn()">
+              <a href="#register">Register <span class="sr-only"></span></a>
+            </li>
 
-          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item">
-          <a href="#producers" class="pure-menu-link" ui-sref-active="active" ui-sref="producers">Producers</a>
-          </li>
+            <li ng-show="producers.checkLoggedIn()">
+              <a href="#profile" class="pure-menu-link" ui-sref-active="active" ui-sref="profile">  My Profile</a>
+            </li>
 
-          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item">
-          <a href="#logout" class="pure-menu-link" ui-sref="home" ng-click="producers.logout()">Logout</a>
-          </li>
-        </ul>
+            <li ng-show="producers.checkLoggedIn()">
+              <a href="#producers"ui-sref-active="active" ui-sref="producers">Producers</a>
+            </li>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-show="producers.checkLoggedIn()">
+              <a href="#home"ui-sref-active="active" ui-sref="home" ng-click="producers.logout()" >Logout</a>
+            </li>
+          </ul>
+
+        </div>
       </div>
     </nav>
-  </header>
+  </header>  
 
   <main ui-view></main>
 
