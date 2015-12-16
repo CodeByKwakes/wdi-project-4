@@ -3,10 +3,9 @@ var router = express.Router();
 var passport = require('passport');
 
 var producersController = require('../controllers/producersController');
-var songsController = require('../controllers/songsController');
-var clientsController = require('../controllers/clientsController');
-var contestsController = require('../controllers/contestsController');
-
+var songsController     = require('../controllers/songsController');
+var clientsController   = require('../controllers/clientsController');
+var contestsController  = require('../controllers/contestsController');
 var authenticationsController = require('../controllers/authenticationsController');
 
 router.post('/login', authenticationsController.login);
