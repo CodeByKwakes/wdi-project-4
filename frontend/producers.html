@@ -1,5 +1,7 @@
-<ul>
+<div ng-show="producers.checkLoggedIn()" class="">
+<ul id="producers">
   <li ng-repeat="producer in producers.all" data-id="{{producer._id}}">
-    <strong>{{local.username}}</strong> <em>{{producer.local.email}}</em>
+    <strong>{producer.username}}</strong> <em>{{ producer.local.email }}</em>
   </li>
 </ul>
+</div>

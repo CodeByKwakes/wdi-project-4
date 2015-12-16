@@ -25,7 +25,7 @@ angular
       var token = res.token ? res.token : null;
       if (token){
         self.getClients();
-        $state.go('home');
+        $state.go('profile');
       }
       self.client = TokenService.decodeToken();
     }

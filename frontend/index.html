@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="BeatSity">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>BeatSity</title>
   <!-- External Files -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-messages.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-  <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+  <script src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- Internal Files -->
@@ -23,7 +24,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'>
 </head>
-<body ng-controller="ProducersController as producers">
+<body class="container-fluid" ng-controller="ProducersController as producers">
 <!-- Header -->
   <header>
     <nav class="navbar navbar-default">
@@ -55,7 +56,6 @@
             <li ng-show="producers.checkLoggedIn()">
               <a href="#producers"ui-sref-active="active" ui-sref="producers">Producers</a>
             </li>
-
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
