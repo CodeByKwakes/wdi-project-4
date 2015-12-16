@@ -1,169 +1,119 @@
-/*SETUP*/
-
 body {
-  font-family: helvetica;
-  background-color: #FAFAFA;
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
 
-main {
-  width: 960px;
-  margin: 30px auto;
-}
-
-html {
-  box-sizing: border-box;
-}
-
-/*FORM*/
-
-#new-user, #new-project, #edit-user {
-  display: none;
-  padding: 10px;
-  background-color: white;
-  margin-bottom: 15px;
-}
-
-input[type=text] {
-  font-size: 16px;
-  font-family: helvetica;
-  padding: 5px 10px;
-  border: 1px solid black;
-  margin-right: 5px;
-}
-
-input[type=submit] {
-  font-weight: bold;
-  font-size: 16px;
-  font-family: helvetica;
-  padding: 5px;
-  width: 150px;
-  border: 1px solid black;
-  background-color: black;
-  color: white;
-}
-
-input[type=submit]:hover {
-  background-color: white;
-  color: black;
-}
-
-/*TYPE*/
-
-h2 {
-  font-weight: bold;
-  font-weight: 26px;
-  line-height: 1.3;
-}
-
-p {
-  line-height: 1.3;
-}
-
-a {
-  color: black;
-  line-height: 1.3;
-}
-
-h2 a {
-  text-decoration: none;
-}
-
-h2 a:hover {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/*HEADER*/
-
-header {
-  width: 100%;
-  background: white;
-  border-bottom: 1px solid #EDEEEE;
-}
+/*header nav*/
 
 header nav {
   max-width: 960px;
-  margin: 0 auto;
-  height: 60px;
-  line-height: 60px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 25px;
 }
 
-header nav ul {
-  height: 60px;
-  line-height: 60px;
-  font-size: 14px;
+.pure-menu .pure-menu-link, .pure-menu-item:hover {
+  background: transparent;
 }
 
-header nav ul li:first-child {
-  float: left;
-  padding: 0;
-  font-size: 25px;
+/*forms*/
+
+.pure-form-aligned .pure-control-group label {
+  text-align: left;
 }
 
-header nav ul li {
-  font-weight: bold;
-  display: inline;
-  height: 60px;
-  line-height: 60px;
-  float: right;
-  padding: 0 10px;
+.pure-form-aligned {
+  padding-left: 16px;
 }
 
-header nav ul li:nth-child(2) {
-  padding: 0 0 0 10px;
+.pure-form input[type=text] {
+  width: 75%;
+}
+.pure-form input[type=password] {
+  width: 75%;
 }
 
-header nav ul li a:hover {
-  text-decoration: none;
+#login legend {
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 25px;
 }
 
-header nav ul li a {
-  text-decoration: none;
-  color: black;
+#register legend {
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 25px;
 }
 
-/*INDEX USERS*/
-
-#users {
-  overflow: hidden;
+.ng-message-error {
+  height: 30px;
+  width: 75%;
+  margin-left: 180px;
+  line-height: 30px;
+  color: #fff;
+  background: #E57373;
+  border: 1px solid #B71C1C;
+  border-radius: 5px;
 }
 
-.user-tile {
-  background-color: white;
-  width: 290px;
-  float: left;
-  padding: 10px;
-  margin: 0 15px 15px 0;
+.ng-message-error p {
+  margin-left: 10px;
 }
 
-.user-tile img {
-  width: 100%;
-  margin-bottom: 10px;
+/*buttons*/
+
+.pure-button-primary {
+  margin-left: 5px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
 }
 
-.user-tile:nth-child(3n+3) {  
-  margin: 0 0 15px 0;
+.pure-button-primary:hover {
+  text-decoration: underline;
+  background: #FAFAFA;
+  border: 1px solid #000;
 }
 
-/*SHOW USER*/
-
-#show {
-  display: none;
-  width: 310px;
-  float: left;
+/*Home display*/
+.home-display .home-info {
+  text-align: center;
 }
 
-#projects {
-  display: none;
-  overflow: hidden;
-  padding-left: 15px;
+.home-display .home-info{
+  margin-bottom: 25px;
 }
 
-.project-tile {
-  background-color: white;
-  padding: 10px;
-  margin-bottom: 15px;
+.home-display .home-info img {
+  width: 600px;
+  border-radius: 5px;
 }
+/*Profile display*/
+
+.producer-display {
+  text-align: center;
+}
+
+.producer-display .logged-in-info{
+  margin-bottom: 25px;
+}
+
+.producer-display .logged-in-info img {
+  border-radius: 5px;
+}
+
+.producer-display h3 {
+  color: #000;
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.producer-display h2 {
+  color: #000;
+  font-size: 48px;
+  font-weight: 300;
+}
+
+
+

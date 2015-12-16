@@ -2,51 +2,58 @@ angular
   .module('BeatSity')
   .controller('ProducersController', ProducersController);
 
-  ProducersController.$inject = ['$http'];
+  ProducersController.$inject = ['Producer', 'TokenService', '$state'];
 
-  function ProducersController($http){
+  function ProducersController(Producer, TokenService, $state){
     var self            =  this;
 
     self.all            = [];
     self.producer       = {};
-    self.newProducer    = {};
     self.getProducers   = getProducers;
-    self.addProducer    = addProducer;
-    self.deleteProducer = deleteProducer;
-    self.producerReset  = producerReset;
+    self.register       = register;
+    self.login          = login;
+    self.logout         = logout;
+    self.checkLoggedIn  = checkLoggedIn;
 
     function getProducers(){
-      $http
-      .get('http://localhost:3000/api/producers')
-      .then(function(response){
-        self.all = response.data.producers;
-        console.log(self.all);
-        console.log(response)
-      });
-    }
-    
-    function addProducer(){
-      $http
-      .post('http://localhost:3000/api/producers', { producer: self.newProducer })
-      .then(function(response){
-        self.all.push(self.newProducer);
+      Producer.query(function(data){
+        self.all = data.producers;
       });
     }
 
-    function deleteProducer(producer){
-      $http
-      .delete('http://localhost:3000/producers/' + producer._id)
-      .then(function(response){
-        var index = self.all.indexOf(producer);
-        self.all.splice(index, 1);
-      });
+    function handleLogin(res){
+      var token = res.token ? res.token : null;
+      if (token){
+        self.getProducers();
+        $state.go('home');
+      }
+      self.producer = TokenService.decodeToken();
     }
 
-    function producerReset(){
+    function register(){
+      Producer.register(self.producer, handleLogin);
+    }
+
+    function login(){
+      Producer.login(self.producer, handleLogin);
+    }
+
+    function logout(){
+      TokenService.removeToken();
+      self.all = [];
       self.producer = {};
-      console.log(self.producer);
     }
-  getProducers();
+
+    function checkLoggedIn(){
+      var loggedIn = !!TokenService.getToken();
+      return loggedIn;
+    }
+    if (self.checkLoggedIn()){
+      self.getProducers();
+      self.producer = TokenService.decodeToken();
+    }
+
+  return self
 }
 
   

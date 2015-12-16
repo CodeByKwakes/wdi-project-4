@@ -1,67 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="BeatSity">
 <head>
-  <meta charset="UTF-8">
   <title>BeatSity</title>
+  <!-- External Files -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <!-- // <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script> -->
-  <script src="js/app.js"></script>
-  <script src="js/controllers/producersController.js"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-messages.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
+<!-- Internal Files -->
+  <script type="text/javascript" src="./js/app.js"></script>
+  <script type="text/javascript" src="./js/services/tokenService.js"></script>
+  <script type="text/javascript" src="./js/services/authInterceptor.js"></script>
+  <script type="text/javascript" src="./js/models/producer.js"></script>
+  <script type="text/javascript" src="./js/controllers/producersController.js"></script>
+<!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
-
-<body ng-app='BeatSity' ng-controller='ProducersController as producers'>
-  <h1>Producers</h1>
-  <nav class="tabs">
-    <!-- <a ui-sref-active="active" ui-sref="home" ng-click="producers.producerReset()">Add Producer</a> -->
-    <a ui-sref-active="active" ui-sref="producers">See Producers</a>
-    <!-- <a ui-sref-active="active" ui-sref="about">About</a> -->
-  </nav>
-  <section>
-    <!-- <ul ng-show="producers.producer" id="producers">
-      <li data-id="{{producers.newProducer._id}}">
-        <strong>{{producers.producer.username}}</strong> <em>{{producers.producer.location}}</em> <span ng-show="producers.producer.status" class='status {{producers.producer.status | lowercase }}'>{{producers.producer.status | uppercase}}</span>
-      </li>
-    </ul> -->
-
-    <!-- <form ng-submit="producers.addProducer()" id="newProducer">
-      <div>
-        <label for="newProducer-name">Name:</label>
-        <input type="text" id="newProducer-name" ng-model="producers.newProducer.name" placeholder="Prof. Moriarty">
-      </div>
-      <div>
-        <label for="newProducer-location">Location:</label>
-        <input type="text" id="newProducer-location" ng-model="producers.newProducer.location" placeholder="Reichenbach Falls, CH">
-      </div>
-      <div>
-        <label for="newProducer-status">Status:</label>
-        <select id="newProducer-status" ng-model='producers.newProducer.status'>
-          <option value="" disabled>- - Please Select One - -</option>
-          <option value="Alive">Alive</option>
-          <option value="Dead">Dead</option>
-          <option value="Unknown" selected>Unknown</option>
-        </select>
-      </div>
-      <div>
-        <input type="submit" value="Add Producer">
-      </div>
-    </form> -->
-
-    <ul id="producers">
-      <h1>BeatSity Producers</h1>
-      <li ng-repeat="producer in producers.all" data-id="{{producer._id}}">
-        <strong>{{producer.local.username}}</strong> <em>{{producer.local.email}}</em>
-        <button class='delete' ng-click="producers.deleteProducer(producer)">Delete</button>
-        <ul>
-          <li ng-repeat="song in producer.local.songs">
-            {{song.title}}
-          </li>
+<body ng-controller="ProducersController as producers">
+<!-- Header -->
+  <header>
+    <nav>
+      <div class="pure-menu pure-menu-horizontal">
+        <a href="#" class="pure-menu-heading pure-menu-link" ui-sref-active="active" ui-sref="home"><h1>LOGGING</h1></a>
+        <ul class="pure-menu-list">
+          <li ng-hide="producers.checkLoggedIn()"class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref-active="active" ui-sref="login">Login</a></li>
+          <li ng-hide="producers.checkLoggedIn()" class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref-active="active" ui-sref="register">Register</a></li>
+          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref-active="active" ui-sref="profile">My Profile</a></li>
+          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref-active="active" ui-sref="producers">Producers</a></li>
+          <li ng-show="producers.checkLoggedIn()" class="pure-menu-item"><a href="#" class="pure-menu-link" ui-sref="home" ng-click="producers.logout()">Logout</a></li>
         </ul>
-      </li>
-    </ul>
+      </div>
+    </nav>
+  </header>
 
+  <main ui-view></main>
 
-  </section>
 </body>
-
 </html>
