@@ -28,6 +28,7 @@ angular
         $state.go('profile');
       }
       self.producer = TokenService.decodeToken();
+      console.log(self.producer)
     }
 
     function register(){

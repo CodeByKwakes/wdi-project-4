@@ -34,7 +34,7 @@ router.route('/songs/:id')
 // Client Routes
 router.route('/clients')
   .get(clientsController.clientsIndex)
-  .post(clientsController.clientsCreate)
+  // .post(clientsController.clientsCreate)
 
 router.route('/clients/:id')
   .get(clientsController.clientsShow)
@@ -52,14 +52,3 @@ router.route('/contests/:id')
   .delete(contestsController.contestsDelete)
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-

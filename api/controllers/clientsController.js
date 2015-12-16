@@ -7,13 +7,13 @@ function clientsIndex(req, res){
   });
 }
 
-function clientsCreate(req, res){
-  var client  = new Client(req.body)
-  client.save(function(err, client){
-    if (err) return res.status(500).json({ message: 'Something went wrong!!'});
-    res.status(201).json({ message: 'A New Client has been successfully created.', client: client})
-  })
-}
+// function clientsCreate(req, res){
+//   var client  = new Client(req.body)
+//   client.save(function(err, client){
+//     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
+//     res.status(201).json({ message: 'A New Client has been successfully created.', client: client})
+//   })
+// }
 
 function clientsShow(req, res){
   Client.findById(req.params.id).populate('contests').exec(function(err, client){
@@ -54,7 +54,7 @@ function clientsDelete(req, res){
 
 module.exports = {
   clientsIndex:   clientsIndex,
-  clientsCreate:  clientsCreate,
+  // clientsCreate:  clientsCreate,
   clientsShow:    clientsShow,
   clientsUpdate:  clientsUpdate,
   clientsDelete:  clientsDelete
