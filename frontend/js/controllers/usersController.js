@@ -1,47 +1,48 @@
 angular
   .module('BeatSity')
-  .controller('ClientsController', ClientsController);
+  .controller('UsersController', UsersController);
 
-  ClientsController.$inject = ['Client', 'TokenService', '$state'];
+  UsersController.$inject = ['User', 'TokenService', '$state'];
 
-  function ClientsController(Client, TokenService, $state){
+  function UsersController(User, TokenService, $state){
     var self            =  this;
 
     self.all            = [];
-    self.client         = {};
-    self.getClients     = getClients;
+    self.user           = {};
+    self.getUsers       = getUsers;
     self.register       = register;
     self.login          = login;
     self.logout         = logout;
     self.isLoggedIn  = isLoggedIn;
 
-    function getClients(){
-      Client.query(function(data){
-        self.all = data.clients;
+    function getUsers(){
+      User.query(function(data){
+        self.all = data.users;
       });
     }
 
     function handleLogin(res){
       var token = res.token ? res.token : null;
       if (token){
-        self.getClients();
+        self.getUsers();
         $state.go('profile');
       }
-      self.client = TokenService.decodeToken();
+      self.user = TokenService.decodeToken();
+      console.log(self.user)
     }
 
     function register(){
-      Client.register(self.client, handleLogin);
+      User.register(self.user, handleLogin);
     }
 
     function login(){
-      Client.login(self.client, handleLogin);
+      User.login(self.user, handleLogin);
     }
 
     function logout(){
       TokenService.removeToken();
       self.all = [];
-      self.client = {};
+      self.user = {};
     }
 
     function isLoggedIn(){
@@ -49,8 +50,8 @@ angular
       return loggedIn;
     }
     if (self.isLoggedIn()){
-      self.getClients();
-      self.client = TokenService.decodeToken();
+      self.getUsers();
+      self.user = TokenService.decodeToken();
     }
 
   return self

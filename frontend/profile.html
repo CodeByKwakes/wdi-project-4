@@ -1,19 +1,19 @@
 <!-- Logged in home display -->
-<div ng-show="producers.checkLoggedIn()" class="">
+<div ng-show="users.isLoggedIn()" class="">
   <div class="row">
   <h3>Welcome</h3>
   </div>
 
   <div class="">
-  <h2>{{ producers.producer.local.username | uppercase }}</h2>
+  <h2>{{ users.user.local.username | uppercase }}</h2>
   </div>
 
   <div class="">
-  <img ng-src="{{ producers.producer.local.image }}">
+  <img ng-src="{{ users.user.local.image }}">
   </div>
 
   <div class="">
-  <h2>{{ producers.producer.local.email }}</h2>
+  <h2>{{ users.user.local.email }}</h2>
   </div>
   
 </div>
@@ -26,7 +26,7 @@
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="home">
     <ul>
-      <li ng-repeat="song in producer.local.songs">
+      <li ng-repeat="song in user.local.songs">
         {{song.title}}
       </li>
     </ul>

@@ -1,12 +1,12 @@
 angular
   .module('BeatSity')
-  .factory('Producer', Producer);
+  .factory('User', User);
 
-Producer.$inject = ['$resource', 'API'];
-function Producer($resource, API){
+User.$inject = ['$resource', 'API'];
+function User($resource, API){
 
   return $resource(
-    API+'/producers/:id',
+    API+'/users/:id',
     {id: '@id'},
     { 'get':       { method: 'GET' },
       'save':      { method: 'POST' },

@@ -1,17 +1,17 @@
 <!-- Login form -->
-<section id="login" ng-hide="producers.checkLoggedIn()">
+<section id="login" ng-hide="users.isLoggedIn()">
   <div class="container">
   <div class="row">
   <div class="col-md-12 col-lg-12">
-    <form name="producers.loginForm" class="form-horizontal" ng-submit="producers.login()" novalidate>
+    <form name="users.loginForm" class="form-horizontal" ng-submit="users.login()" novalidate>
       <fieldset>
         <legend>Login</legend>
 
         <div class="form-group">
           <label for="type" class="col-lg-2 col-lg-offset-2 control-label">Please select your account type:</label>
           <div class="col-lg-4">
-            <select class="form-control" id="type" name="type" ng-model="producers.producer.type">
-              <option value="producer">Producer</option>
+            <select class="form-control" id="type" name="type" ng-model="users.user.type">
+              <option value="user">Producer</option>
               <option value="client">Client</option>
             </select>
           </div>
@@ -20,22 +20,22 @@
         <div class="form-group">
           <label for="email" class="col-lg-2 col-lg-offset-2 control-label">Email</label>
           <div class="col-lg-4">
-            <input type="text" class="form-control" name="email" id="inputEmail" placeholder="email" ng-model="producers.producer.email">
+            <input type="text" class="form-control" name="email" id="inputEmail" placeholder="email" ng-model="users.user.email">
           </div>
         </div>
 
-        <div class="ng-message-error" ng-messages="producers.registerForm['email'].$error" ng-show="(producers.registerForm.$submitted || producers.registerForm['email'].$invalid)">
+        <div class="ng-message-error" ng-messages="users.registerForm['email'].$error" ng-show="(users.registerForm.$submitted || users.registerForm['email'].$invalid)">
           <p ng-message="required">Email is required.</p>
         </div>
 
         <div class="form-group">
           <label for="password" class="col-lg-2 col-lg-offset-2 control-label">Password</label>
           <div class="col-lg-4">
-            <input type="text" class="form-control" name="password" id="inputEmail" placeholder="password" ng-model="producers.producer.password">
+            <input type="text" class="form-control" name="password" id="inputEmail" placeholder="password" ng-model="users.user.password">
           </div>
         </div>
 
-        <div class="ng-message-error" ng-messages="producers.registerForm['password'].$error" ng-show="(producers.registerForm.$submitted || producers.registerForm['password'].$invalid)">
+        <div class="ng-message-error" ng-messages="users.registerForm['password'].$error" ng-show="(users.registerForm.$submitted || users.registerForm['password'].$invalid)">
           <p ng-message="required">Password is required.</p>
         </div>
 

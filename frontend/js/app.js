@@ -22,9 +22,9 @@ angular
         url: "/register",
         templateUrl: "register.html"
       })
-      .state('producers', {
-        url: "/producers",
-        templateUrl: "producers.html"
+      .state('users', {
+        url: "/users",
+        templateUrl: "users.html"
       })
       .state('profile', {
         url: "/profile",

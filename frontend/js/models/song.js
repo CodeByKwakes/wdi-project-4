@@ -10,7 +10,7 @@ function Song($resource, API){
     {id: '@id'},
     { 'get':       { method: 'GET' },
       'save':      { method: 'POST' },
-      'query':     { method: 'GET', isArray: true},
+      'query':     { method: 'GET', isArray: false},
       'remove':    { method: 'DELETE' },
       'delete':    { method: 'DELETE' },
     }
