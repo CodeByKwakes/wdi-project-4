@@ -18,15 +18,10 @@ function usersCreate(req, res){
 }
 
 function usersShow(req, res){
-  User.findById(req.params.id).populate('local.songs').exec(function(err, user){
+  User.findById(req.params.id).populate(['local.songs', 'local.contests']).exec(function(err, user){
     if (err) return res.status(404).json({ message: 'Something went wrong!!'});
     res.status(200).json({ user: user});
   })
-
-/*  User.findById(req.params.id).populate('local.contests').exec(function(err, user){
-    if (err) return res.status(404).json({ message: 'Something went wrong!!'});
-    res.status(200).json({ user: user});
-  })*/
 }
 
 function usersUpdate(req, res){
