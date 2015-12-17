@@ -11,7 +11,6 @@ Controller: {{ songs.controllerName }}
         <div class="form-group has-feedback" ng-class="{ 'has-error': addSongForm.title.$invalid && addSongForm.title.$dirty }">
           <input server-error class="form-control input-lg" type="text" name="title" ng-model="songs.newSong.title" placeholder="Title" required autofocus>
 
-          <span class="ion-at form-control-feedback"></span>
           <div class="help-block" ng-if="addSongForm.title.$dirty" ng-messages="addSongForm.title.$error">
             <div ng-message="required">Please enter a title</div>
             <div ng-message="server">{{errorMessage.title}}</div>
@@ -21,7 +20,6 @@ Controller: {{ songs.controllerName }}
         <div class="form-group has-feedback" ng-class="{ 'has-error': addSongForm.image.$invalid && addSongForm.image.$dirty }">
           <input server-error class="form-control input-lg" type="text" name="image" ng-model="songs.newSong.image" placeholder="Image" required autofocus>
 
-          <span class="ion-at form-control-feedback"></span>
           <div class="help-block" ng-if="addSongForm.image.$dirty" ng-messages="addSongForm.image.$error">
             <div ng-message="required">Please enter a image</div>
             <div ng-message="server">{{errorMessage.image}}</div>
@@ -31,7 +29,6 @@ Controller: {{ songs.controllerName }}
         <div class="form-group has-feedback" ng-class="{ 'has-error': addSongForm.genre.$invalid && addSongForm.genre.$dirty }">
           <input server-error class="form-control input-lg" type="text" name="genre" ng-model="songs.newSong.genre" placeholder="Genre" required autofocus>
 
-          <span class="ion-at form-control-feedback"></span>
           <div class="help-block" ng-if="addSongForm.genre.$dirty" ng-messages="addSongForm.genre.$error">
             <div ng-message="required">Please enter a genre</div>
             <div ng-message="server">{{errorMessage.genre}}</div>
@@ -41,7 +38,6 @@ Controller: {{ songs.controllerName }}
         <div class="form-group has-feedback" ng-class="{ 'has-error': addSongForm.bpm.$invalid && addSongForm.bpm.$dirty }">
           <input server-error class="form-control input-lg" type="text" name="bpm" ng-model="songs.newSong.bpm" placeholder="Bpm" required autofocus>
 
-          <span class="ion-at form-control-feedback"></span>
           <div class="help-block" ng-if="addSongForm.bpm.$dirty" ng-messages="addSongForm.bpm.$error">
             <div ng-message="required">Please enter a bpm</div>
             <div ng-message="server">{{errorMessage.bpm}}</div>

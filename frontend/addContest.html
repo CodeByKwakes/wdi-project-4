@@ -1,2 +1,67 @@
 <h1>Add Contest</h1>
 Controller: {{ contests.controllerName }}
+
+<!-- title: String,
+details: String,
+rules: String,
+parts: String,
+prizes: {
+  grand_prize: String,
+  runner_up: String,
+},
+schedule: {
+  submision_date: Date,
+  submision_deadline: Number,
+  results_date: Date,
+  results_deadline: Number,
+}, -->
+
+<div class="container">
+  <div class="center-form panel">
+    <div class="panel-body">
+      <h4 class="text-center"><i class="ion-log-in"></i> Add Contest</h4>
+
+      <form name="contests.addContestForm" ng-submit="contests.add()" novalidate>
+        
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.title.$invalid && addContestForm.title.$dirty }">
+          <input server-error class="form-control input-lg" type="text" name="title" ng-model="contests.newContest.title" placeholder="Title" required autofocus>
+
+          <div class="help-block" ng-if="addContestForm.title.$dirty" ng-messages="addContestForm.title.$error">
+            <div ng-message="required">Please enter a title</div>
+            <div ng-message="server">{{errorMessage.title}}</div>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.image.$invalid && addContestForm.image.$dirty }">
+          <input server-error class="form-control input-lg" type="text" name="image" ng-model="contests.newContest.image" placeholder="Image" required autofocus>
+
+          <div class="help-block" ng-if="addContestForm.image.$dirty" ng-messages="addContestForm.image.$error">
+            <div ng-message="required">Please enter a image</div>
+            <div ng-message="server">{{errorMessage.image}}</div>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.genre.$invalid && addContestForm.genre.$dirty }">
+          <input server-error class="form-control input-lg" type="text" name="genre" ng-model="contests.newContest.genre" placeholder="Genre" required autofocus>
+
+          <div class="help-block" ng-if="addContestForm.genre.$dirty" ng-messages="addContestForm.genre.$error">
+            <div ng-message="required">Please enter a genre</div>
+            <div ng-message="server">{{errorMessage.genre}}</div>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.bpm.$invalid && addContestForm.bpm.$dirty }">
+          <input server-error class="form-control input-lg" type="text" name="bpm" ng-model="contests.newContest.bpm" placeholder="Bpm" required autofocus>
+
+          <div class="help-block" ng-if="addContestForm.bpm.$dirty" ng-messages="addContestForm.bpm.$error">
+            <div ng-message="required">Please enter a bpm</div>
+            <div ng-message="server">{{errorMessage.bpm}}</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-block btn-success" ng-disabled="addContestForm.$invalid">Log in</button>
+
+      </form>
+    </div>
+  </div>
+</div>

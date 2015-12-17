@@ -18,6 +18,7 @@
   <script type="text/javascript" src="./js/services/currentUser.js"></script>
   <script type="text/javascript" src="./js/models/user.js"></script>
   <script type="text/javascript" src="./js/models/song.js"></script>
+  <script type="text/javascript" src="./js/models/contest.js"></script>
   <script type="text/javascript" src="./js/controllers/usersController.js"></script>
   <script type="text/javascript" src="./js/controllers/songsController.js"></script>
   <script type="text/javascript" src="./js/controllers/contestsController.js"></script>
@@ -50,10 +51,10 @@
         <li ng-show="users.isLoggedIn()">
           <a ui-sref-active="active" ui-sref="addSong">Add Song</a>
         </li>
-        <li ng-show="users.isLoggedIn()">
+        <li ng-show="users.isLoggedIn() && users.role === 'user'">
           <a ui-sref-active="active" ui-sref="contests">Contests</a>
         </li>
-        <li ng-show="users.isLoggedIn()">
+        <li ng-show="users.isLoggedIn() && users.role === 'client'">
           <a ui-sref-active="active" ui-sref="addContest">Add Contest</a>
         </li>
         <li ng-show="users.isLoggedIn()">

@@ -2,61 +2,66 @@ angular
   .module('BeatSity')
   .controller('UsersController', UsersController);
 
-  UsersController.$inject = ['User', 'TokenService', '$state'];
+UsersController.$inject = ['User', 'TokenService', '$state', 'currentUser'];
+function UsersController(User, TokenService, $state, currentUser){
+  this.controllerName = "UsersController";
 
-  function UsersController(User, TokenService, $state){
-    this.controllerName = "UsersController";
+  var self         =  this;
 
-    var self            =  this;
+  self.all         = [];
+  self.user        = {};
+  self.getUsers    = getUsers;
+  self.register    = register;
+  self.login       = login;
+  self.logout      = logout;
+  self.isLoggedIn  = isLoggedIn;
+  self.currentUser = currentUser.getUser();
+  self.role        = currentUser.getRole();
+  console.log(self.currentUser)
+  console.log("ROLE: ", self.role);
 
-    self.all            = [];
-    self.user           = {};
-    self.getUsers       = getUsers;
-    self.register       = register;
-    self.login          = login;
-    self.logout         = logout;
-    self.isLoggedIn  = isLoggedIn;
+  function getUsers(){
+    User.query(function(data){
+      self.all = data.users;
+    });
+  }
 
-    function getUsers(){
-      User.query(function(data){
-        self.all = data.users;
-      });
-    }
-
-    function handleLogin(res){
-      var token = res.token ? res.token : null;
-      if (token){
-        self.getUsers();
-        $state.go('profile');
-      }
-      self.user = TokenService.decodeToken();
-      console.log(self.user)
-    }
-
-    function register(){
-      User.register(self.user, handleLogin);
-    }
-
-    function login(){
-      User.login(self.user, handleLogin);
-    }
-
-    function logout(){
-      TokenService.removeToken();
-      self.all = [];
-      self.user = {};
-    }
-
-    function isLoggedIn(){
-      var loggedIn = !!TokenService.getToken();
-      return loggedIn;
-    }
-    if (self.isLoggedIn()){
+  function handleLogin(res){
+    var token = res.token ? res.token : null;
+    if (token){
       self.getUsers();
-      self.user = TokenService.decodeToken();
+      $state.go('profile');
     }
+    self.user = TokenService.decodeToken();
+    console.log(self.user)
+  }
+
+  function register(){
+    console.log(self.user)
+    User.register(self.user, handleLogin);
+  }
+
+  function login(){
+    User.login(self.user, handleLogin);
+  }
+
+  function logout(){
+    TokenService.removeToken();
+    currentUser.removeUser();
+    self.all = [];
+    self.user = {};
+  }
+
+  function isLoggedIn(){
+    var loggedIn = !!TokenService.getToken();
+    return loggedIn;
+  }
+  if (self.isLoggedIn()){
+    self.getUsers();
+    self.user = TokenService.decodeToken();
+  }
 
   return self
 }
 
-  
+

@@ -4,7 +4,6 @@ var passport = require('passport');
 
 var usersController = require('../controllers/usersController');
 var songsController     = require('../controllers/songsController');
-// var clientsController   = require('../controllers/clientsController');
 var contestsController  = require('../controllers/contestsController');
 var authenticationsController = require('../controllers/authenticationsController');
 

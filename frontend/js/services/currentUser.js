@@ -5,13 +5,19 @@ angular
 CurrentUser.$inject = ["TokenService"];
 function CurrentUser(TokenService){
 
-  var user = null
+  var user = null;
+  var role = null;
 
   return {
     getUser: function(){
-      user = TokenService.decodeToken();
-      console.log(user);
-      return user;
+      return user ? user : TokenService.decodeToken();
+    },
+    getRole: function(){
+      var user =  this.getUser();
+      return user ? user.local.role : null;
+    },
+    removeUser: function(){
+      return user = null;
     }
   }
 }
