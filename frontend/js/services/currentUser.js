@@ -14,7 +14,7 @@ function CurrentUser(TokenService){
     },
     getRole: function(){
       var user =  this.getUser();
-      return user ? user.role : null;
+      return user ? user.local.role : null;
     },
     removeUser: function(){
       return user = null;

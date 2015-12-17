@@ -11,6 +11,7 @@ function UsersController(User, TokenService, $state, currentUser){
   self.all         = [];
   self.user        = {};
   self.getUsers    = getUsers;
+  self.getUser     = getUser;
   self.register    = register;
   self.login       = login;
   self.logout      = logout;
@@ -24,6 +25,13 @@ function UsersController(User, TokenService, $state, currentUser){
     User.query(function(data){
       self.all = data.users;
     });
+  }
+
+  function getUser(id){
+    User.get({ id: id }, function(data) {
+      console.log("USERS:", data)
+      self.user = data.user;
+    })
   }
 
   function handleLogin(res){

@@ -30,6 +30,10 @@ angular
         url: "/profile",
         templateUrl: "profile.html"
       })
+      .state('userProfile', {
+        url: "/profile/show",
+        templateUrl: "userProfile.html"
+      })
       .state('songs', {
         url: "/songs",
         templateUrl: "songs.html",
