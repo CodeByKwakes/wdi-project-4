@@ -1,31 +1,29 @@
 
 <div class="row" ng-show="users.isLoggedIn()" data-id="{{contest._id}}">
-    <div class="col-md-8">
-        <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
-    </div>
-    <div class="col-md-4">
-        <h1>{{contests.contest.local.title}}</h1>
-        <p>{{contest.details}}</p>
-        <a class="btn btn-primary btn-lg" href="#">Enter This Contest</a>
-    </div>
+  <div class="col-md-8">
+    <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
+  </div>
+  <div class="col-md-4">
+    <h1>{{contests.contest.title}}</h1>
+    <p>{{contests.contest.details}}</p>
+    <a class="btn btn-primary btn-lg" href="#">Enter This Contest</a>
+  </div>
 </div>
 
 <hr>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Rules</h2>
-        <p>{{contests.contest.rules}}</p>
-    </div>
-    <!-- /.col-md-4 -->
-    <div class="col-md-4">
-        <h2>Prizes</h2>
-        <p>{{contest.prizes.grand_prize}}</p>
-    </div>
-    <!-- /.col-md-4 -->
-    <div class="col-md-4">
-        <h2>Schedule</h2>
-        <p>{{contest.schedule.submision_date}}</p>
-        <p>{{contest.schedule.results_date}}</p>
-    </div>
+  <div class="col-md-4">
+    <h2>Rules</h2>
+    <p>{{contests.contest.rules}}</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Prizes</h2>
+    <p>{{contests.contest.prizes.grand_prize}}</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Schedule</h2>
+    <p>{{contests.contest.schedule.submision_date}}</p>
+    <p>{{contests.contest.schedule.results_date}}</p>
+  </div>
 </div>

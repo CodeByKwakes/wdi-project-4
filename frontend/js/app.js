@@ -27,13 +27,14 @@ angular
         templateUrl: "users.html"
       })
       .state('profile', {
-        url: "/profile",
-        templateUrl: "profile.html"
+        url: "/users/:id",
+        templateUrl: "profile.html",
+        controller: "UsersController as users"
       })
-      .state('userProfile', {
-        url: "/profile/show",
-        templateUrl: "userProfile.html"
-      })
+      // .state('userProfile', {
+      //   url: "/users/:id",
+      //   templateUrl: "userProfile.html"
+      // })
       .state('songs', {
         url: "/songs",
         templateUrl: "songs.html",
@@ -55,7 +56,7 @@ angular
         controller: "ContestsController as contests"
       })
       .state('showContest', {
-        url: "/contests/show",
+        url: "/contests/:id",
         templateUrl: "showContest.html",
         controller: "ContestsController as contests"
       })

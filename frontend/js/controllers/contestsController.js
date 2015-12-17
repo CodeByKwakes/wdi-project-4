@@ -2,8 +2,8 @@ angular
   .module('BeatSity')
   .controller('ContestsController', ContestsController);
 
-ContestsController.$inject = ['$state', 'currentUser', 'Contest'];
-function ContestsController($state, currentUser, Contest){
+ContestsController.$inject = ['$state', 'currentUser', 'Contest', '$stateParams'];
+function ContestsController($state, currentUser, Contest, $stateParams){
   this.controllerName = "ContestsController";
 
   var self         = this;
@@ -12,6 +12,13 @@ function ContestsController($state, currentUser, Contest){
   self.getContests = getContests;
   self.add         = add;
   self.currentUser = currentUser.getUser();
+
+  if($stateParams.id){
+    Contest.get({id:$stateParams.id}, function(data){
+      self.contest = data.contest;
+      console.log(data)
+    })
+  }
 
   getContests();
   function getContests(){

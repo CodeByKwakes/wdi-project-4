@@ -1,33 +1,14 @@
 <h1>Users</h1>
-Controller: {{ users.controllerName }}
-
 <div class="row" ng-show="users.isLoggedIn()">
   <ul id="users">
     <li ng-repeat="user in users.all" data-id="{{user._id}}">
-    <div class="col-md-4 portfolio-item">
-        <a ui-sref="userProfile">
-            <img class="img-responsive" src="http://lorempixel.com/400/200/people/1" alt="">
+      <div class="col-md-4 portfolio-item">
+        <a>
+          <img class="img-responsive" src="http://lorempixel.com/400/200/people/1" alt="">
         </a>
-        <h3>
-            <a ui-sref="userProfile">{{user.local.username}}</a>
-        </h3>
+        <h3><a ui-sref="profile({id:user._id})">{{user.local.username}}</a></h3>
         <p>{{ user.local.email }}</p>
-    </div>
-
+      </div>
     </li>
   </ul>
 </div>
-
-
-        <!-- /.row -->
-
-
-<!--         <div class="col-sm-3 col-md-3 col-lg-3">
-          <div class="thumbnail">
-            <img src="..." alt="...">
-            <div class="caption">
-              <h3>{{user.local.username}}</h3>
-              <p>{{ user.local.email }}</p>
-            </div>
-          </div>
-        </div> -->

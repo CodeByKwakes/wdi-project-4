@@ -1,20 +1,13 @@
 <h1>Songs</h1>
-Controller: {{ songs.controllerName }}
-
 <ul>
   <li ng-repeat="song in songs.all" data-id="{{song._id}}">
-    <div class="col-sm-3 col-md-3 col-lg-3">
-      <ul class="thumbnails">
-        <li class="span4">
-          <div class="thumbnail">
-            <img src="..." class="img-circle">
-            <h3>{{song.title}}</h3>
-            <p><em>{{song.genre}}</em></p>
-            <p><em>{{song.bpm}}</em></p>
-          </div>
-        </li>
-      </ul>
+    <div class="col-md-4 portfolio-item">
+      <a ui-sref="u">
+        <img class="img-responsive" src="http://lorempixel.com/400/200/people/1" alt="">
+      </a>
+      <h3><a ui-sref="">{{song.title}}</a></h3>
+      <p><em>{{song.genre}}</em></p>
+      <p><em><em>{{song.bpm}}</em></em></p>
     </div>
   </li>
 </ul>
-

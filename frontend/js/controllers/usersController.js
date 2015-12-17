@@ -2,8 +2,8 @@ angular
   .module('BeatSity')
   .controller('UsersController', UsersController);
 
-UsersController.$inject = ['User', 'TokenService', '$state', 'currentUser'];
-function UsersController(User, TokenService, $state, currentUser){
+UsersController.$inject = ['User', 'TokenService', '$state', 'currentUser', '$stateParams'];
+function UsersController(User, TokenService, $state, currentUser, $stateParams){
   this.controllerName = "UsersController";
 
   var self         =  this;
@@ -18,8 +18,14 @@ function UsersController(User, TokenService, $state, currentUser){
   self.isLoggedIn  = isLoggedIn;
   self.currentUser = currentUser.getUser();
   self.role        = currentUser.getRole();
-  console.log(self.currentUser)
-  console.log("ROLE: ", self.role);
+  // console.log(self.currentUser)
+  // console.log("ROLE: ", self.role);
+
+  if($stateParams.id){
+    User.get({id:$stateParams.id}, function(data){
+      self.user = data.user
+    })
+  }
 
   function getUsers(){
     User.query(function(data){
