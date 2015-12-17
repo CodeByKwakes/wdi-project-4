@@ -8,23 +8,23 @@
 
 <button ng-if="users.currentUser._id === users.user._id" ui-sref="edit({id:users.user._id})">Edit</button>
 
-<ul>
-  <li ng-repeat="song in users.user.local.songs">{{song.title}}</li>
-</ul>
-
 <div class="row">
   <div class="col-md-8">
     <img class="img-responsive" src="http://placehold.it/750x500" alt="">
   </div>
   <div class="col-md-4">
-    <h3>Real Name: {{users.user.local.first_name}} {{users.user.local.last_name }}</h3>
+    <h3>Real Name:{{users.user.local.first_name}} {{users.user.local.last_name }}</h3>
     <hr>
     <h3>Contact Details</h3>
     <ul>
-      <li>{{ users.user.local.contact.website }}</li>
-      <li>{{ users.user.local.email }}</li>
+      <li>{{users.user.local.contact.website}}</li>
+      <li>{{users.user.local.email}}</li>
       <li>{{users.user.local.contact.location}}</li>
       <li>{{users.user.local.contact.country}}</li>
+    </ul>
+    <h3>My Music</h3>
+    <ul>
+      <li ng-repeat="song in users.user.local.songs">{{song.title}}</li>
     </ul>
   </div>
 </div>

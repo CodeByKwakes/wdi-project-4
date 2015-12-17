@@ -29,7 +29,6 @@ function usersUpdate(req, res){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
     if (!user) return res.status(404).json({ message: 'No User found???'});
 
-
     user.save(function(err){
       if (err) return res.status(500).json({ message: 'Something went wrong!!'});
       res.status(201).json({ message: 'User Profile Updated.', user: user})

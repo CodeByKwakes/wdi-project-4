@@ -1,26 +1,17 @@
-<h1>Home</h1>
-Controller: {{ users.controllerName }}
-
-<div class="container">
-
-  <div ng-show="users.isLoggedIn()">
-    <div class="row">
-      <div ng-repeat="user in users.all" class="col-lg-2 col-sm-3 col-xs-4">
-        <strong>{{user.local.username}}</strong> <em>{{ user.local.email }}</em>
-        </a>
-      </div>
-    </div>
+<div ng-show="users.isLoggedIn()">
+  <div class="jumbotron">
+    <h1><i class="ion-headphone"></i>BeatSity</h1>
   </div>
-
-  <div ng-hide="users.isLoggedIn()">
-    <div class="jumbotron">
-      <h1><i class="ion-headphone"></i>BeatSity</h1>
-      <p>The New Music Website for both Producer looking for jobs <strong>and</strong> clients and Clients looking for music.<br/>To continue, please log in  or create a new email account.</p>
-      <p>
-        <a class="btn btn-lg btn-success" ui-sref="login"><i class="ion-log-in"></i> Log in</a>
-        <a class="btn btn-lg btn-primary" ui-sref="register"><i class="ion-person-add"></i> Create account</a>
-      </p>
-    </div>
-  </div>
-
 </div>
+
+<div ng-hide="users.isLoggedIn()">
+  <div class="jumbotron">
+    <h1><i class="ion-headphone"></i>BeatSity</h1>
+    <p>The New Music Website for both Producer looking for jobs <strong>and</strong> clients and Clients looking for music.<br/>To continue, please log in  or create a new email account.</p>
+    <p>
+      <a class="btn btn-lg btn-success" ui-sref="login"><i class="ion-log-in"></i> Log in</a>
+      <a class="btn btn-lg btn-primary" ui-sref="register"><i class="ion-person-add"></i> Create account</a>
+    </p>
+  </div>
+</div>
+
