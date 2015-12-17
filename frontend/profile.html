@@ -1,38 +1,54 @@
 <!-- Logged in home display -->
-<div ng-show="users.isLoggedIn()" class="">
-  <div class="row">
-  <h3>Welcome</h3>
+
+
+<div class="container" ng-show="users.isLoggedIn()">
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+
+        <div class="col-xs-6">
+          <img ng-src="{{users.user.local.image}}" class="img-responsive">
+        </div>
+
+        <div class="col-xs-6">
+          <div class="caption">
+            <h5>{{ users.user.local.username | uppercase }}</a></h5>
+
+            <p>{{ users.user.local.email }}</p>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-xs-12">
+          <h5></h5>
+
+          <hr class="soften">
+          <h5 class="text-center"><i class="ion-chatbox-working text-primary"></i> Music</h5>
+
+          <ul class="media-list">
+            <li ng-repeat="comment in photo.comments.data" class="media">
+              <a class="pull-left" href="http://instagram.com/{{}}">
+                <img class="media-object img-rounded" ng-src="{{}}">
+              </a>
+              <div class="media-body">
+                <a class="media-heading" href="{{}}">{{}}</a>
+                {{}}
+              </div>
+            </li>
+            <li >No comments</li>
+          </ul>
+
+          <hr class="soften">
+
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="">
-  <h2>{{ users.user.local.username | uppercase }}</h2>
-  </div>
-
-  <div class="">
-  <img ng-src="{{ users.user.local.image }}">
-  </div>
-
-  <div class="">
-  <h2>{{ users.user.local.email }}</h2>
-  </div>
-  
-</div>
-
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#" data-toggle="tab" aria-expanded="true">Music</a></li>
-  <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Profile</a></li>
-</ul>
-
-<div id="myTabContent" class="tab-content">
-  <div class="tab-pane fade active in" id="home">
-    <ul>
-      <li ng-repeat="song in user.local.songs">
-        {{song.title}}
-      </li>
-    </ul>
-  </div>
-  <div class="tab-pane fade" id="profile">
-    <p></p>
-  </div>
- 
 </div>

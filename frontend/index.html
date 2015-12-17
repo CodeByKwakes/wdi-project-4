@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="BeatSity">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BeatSity</title>
   <!-- External Files -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
@@ -22,55 +22,40 @@
 <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="stylesheet" type="text/css" href="./css/reset.css">
+
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'>
+<!-- <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'> -->
 </head>
 <body class="container-fluid" ng-controller="UsersController as users">
 <!-- Header -->
-  <header>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-  target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#home" ui-sref="home">BeatSity</a>
-        </div>
+<header>
+  <div class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <a ui-sref="home" class="navbar-brand"><i class="ion-headphone"></i>BeatSity</a>
+        <li ng-hide="users.isLoggedIn()">
+          <a ui-sref="login">Login</a>
+        </li>
+        <li ng-hide="users.isLoggedIn()">
+          <a ui-sref="register">Register</a>
+        </li>
+        <li ng-show="users.isLoggedIn()">
+          <a ui-sref-active="active" ui-sref="profile"> My Profile</a>
+        </li>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active" ng-hide="users.isLoggedIn()">
-              <a href="#login">Login <span class="sr-only"></span></a>
-            </li>
+        <li ng-show="users.isLoggedIn()">
+          <a ui-sref-active="active" ui-sref="users">Users</a>
+        </li>
+        <li ng-show="users.isLoggedIn()">
+          <a ui-sref-active="active" ui-sref="home" ng-click="users.logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>   
 
-            <li class="active" ng-hide="users.isLoggedIn()">
-              <a href="#register">Register <span class="sr-only"></span></a>
-            </li>
-
-            <li ng-show="users.isLoggedIn()">
-              <a href="#profile" class="pure-menu-link" ui-sref-active="active" ui-sref="profile">  My Profile</a>
-            </li>
-
-            <li ng-show="users.isLoggedIn()">
-              <a href="#users"ui-sref-active="active" ui-sref="users">Users</a>
-            </li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li ng-show="users.isLoggedIn()">
-              <a href="#home"ui-sref-active="active" ui-sref="home" ng-click="users.logout()" >Logout</a>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-    </nav>
-  </header>  
-
-  <main ui-view></main>
+<main ui-view></main>
 
 </body>
 </html>
