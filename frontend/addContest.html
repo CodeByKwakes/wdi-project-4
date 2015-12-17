@@ -1,18 +1,8 @@
 <h1>Add Contest</h1>
 Controller: {{ contests.controllerName }}
 
-<!-- ,
-: String,
-parts: String,
-prizes.grand_prize:
-schedule.submision_date
-schedule.submision_deadline
-schedule.results_date
-schedule.results_deadline
-}, -->
-
 <div class="container">
-  <div class="center-form panel">
+  <div class="form panel">
     <div class="panel-body">
       <h4 class="text-center"><i class="ion-log-in"></i> Add Contest</h4>
 
@@ -28,7 +18,7 @@ schedule.results_deadline
         </div>
 
         <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.details.$invalid && addContestForm.details.$dirty }">
-          <input server-error class="form-control input-lg" type="text" name="details" ng-model="contests.newContest.details" placeholder="Contest Details" required autofocus>
+          <textarea class="form-control input-lg" type="text" name="details" ng-model="contests.newContest.details" placeholder="Contest Details" required autofocus></textarea>
 
           <div class="help-block" ng-if="addContestForm.details.$dirty" ng-messages="addContestForm.details.$error">
             <div ng-message="required">Please enter a details</div>
@@ -37,7 +27,7 @@ schedule.results_deadline
         </div>
 
         <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.rules.$invalid && addContestForm.rules.$dirty }">
-          <input server-error class="form-control input-lg" type="text" name="rules" ng-model="contests.newContest.rules" placeholder="Rules" required autofocus>
+          <textarea class="form-control input-lg" type="text" name="rules" ng-model="contests.newContest.rules" rows="4" placeholder="Rules" required autofocus></textarea>
 
           <div class="help-block" ng-if="addContestForm.rules.$dirty" ng-messages="addContestForm.rules.$error">
             <div ng-message="required">Please enter a rules</div>
@@ -46,7 +36,7 @@ schedule.results_deadline
         </div>
 
         <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.prizes.grand_prize.$invalid && addContestForm.prizes.grand_prize.$dirty }">
-          <input server-error class="form-control input-lg" type="text" name="grandPrize" ng-model="contests.newContest.prizes.grand_prize" placeholder="Grand Prize" required autofocus>
+          <textarea class="form-control input-lg" type="text" name="grandPrize" ng-model="contests.newContest.prizes.grand_prize" rows="4" placeholder="Grand Prize" required autofocus></textarea>
 
           <div class="help-block" ng-if="addContestForm.prizes.grand_prize.$dirty" ng-messages="addContestForm.prizes.grand_prize.$error">
             <div ng-message="required">Please enter a Prizes</div>
@@ -55,7 +45,7 @@ schedule.results_deadline
         </div>
 
         <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.schedule.submision_date.$invalid && addContestForm.schedule.submision_date.$dirty }">
-          <input server-error class="form-control input-lg" type="date" name="grandPrize" ng-model="contests.newContest.schedule.submision_date" placeholder="Submission Date" required autofocus>
+          <input server-error class="form-control input-lg" type="date" name="submissionDate" ng-model="contests.newContest.schedule.submision_date" placeholder="Submission Date" required autofocus>
 
           <div class="help-block" ng-if="addContestForm.schedule.submision_date.$dirty" ng-messages="addContestForm.schedule.submision_date.$error">
             <div ng-message="required">Please enter a Submission Date</div>
@@ -64,7 +54,7 @@ schedule.results_deadline
         </div>
 
         <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.schedule.results_date.$invalid && addContestForm.schedule.results_date.$dirty }">
-          <input server-error class="form-control input-lg" type="date" name="grandPrize" ng-model="contests.newContest.schedule.results_date" placeholder="Result Date" required autofocus>
+          <input server-error class="form-control input-lg" type="date" name="resultDate" ng-model="contests.newContest.schedule.results_date" placeholder="Result Date" required autofocus>
 
           <div class="help-block" ng-if="addContestForm.schedule.results_date.$dirty" ng-messages="addContestForm.schedule.results_date.$error">
             <div ng-message="required">Please enter a Result Date</div>

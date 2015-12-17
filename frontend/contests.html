@@ -1,7 +1,7 @@
 <h1>Contests</h1>
 Controller: {{ contests.controllerName }}
 
-<ul>
+<!-- <ul>
   <li ng-repeat="contest in contests.all" data-id="{{contest._id}}">
     <strong>{{contest.title}}</strong> 
     <em>{{contest.details}}</em>
@@ -9,6 +9,26 @@ Controller: {{ contests.controllerName }}
     <em>{{contest.prizes.grand_prize}}</em>
     <em>{{contest.schedule.submision_date}}</em>
     <em>{{contest.schedule.results_date}}</em>
+  </li>
+</ul> -->
+
+<ul>
+  <li ng-repeat="contest in contests.all" data-id="{{contest._id}}">
+    <div class="row">
+     <div class="col-md-7">
+       <a href="#">
+         <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+       </a>
+     </div>
+     <div class="col-md-5">
+       <h3><strong>{{contest.title}}</strong> </h3>
+       <h4><em>{{contest.prizes.grand_prize}}</em></h4>
+       <p><em>{{contest.details}}</em></p>
+       <a class="btn btn-primary" href="#">View Contest <span class="glyphicon glyphicon-chevron-right"></span></a>
+     </div>
+    </div>
+    <!-- /.row -->
+    <hr>
   </li>
 </ul>
 
