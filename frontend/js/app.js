@@ -31,10 +31,11 @@ angular
         templateUrl: "profile.html",
         controller: "UsersController as users"
       })
-      // .state('userProfile', {
-      //   url: "/users/:id",
-      //   templateUrl: "userProfile.html"
-      // })
+      .state('edit', {
+        url: "/users/:id/edit",
+        templateUrl: "userEdit.html",
+        controller: "UsersController as users"
+      })
       .state('songs', {
         url: "/songs",
         templateUrl: "songs.html",

@@ -18,12 +18,19 @@ function UsersController(User, TokenService, $state, currentUser, $stateParams){
   self.isLoggedIn  = isLoggedIn;
   self.currentUser = currentUser.getUser();
   self.role        = currentUser.getRole();
+  self.editUser    = editUser;
   // console.log(self.currentUser)
   // console.log("ROLE: ", self.role);
 
   if($stateParams.id){
     User.get({id:$stateParams.id}, function(data){
       self.user = data.user
+    })
+  }
+
+  function editUser(){
+    User.update({id:self.user._id}, self.user, function(data){
+      console.log(data);
     })
   }
 

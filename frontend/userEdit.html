@@ -1,0 +1,24 @@
+<h1>Edit</h1>
+<form method="post" ng-submit="users.editUser()" name="users.registerForm">
+
+
+  <div class="form-group has-feedback">
+    <input class="form-control input-lg" type="text" id="username" name="username" ng-model="users.user.local.username" placeholder="username" ng-model="users.user.local.username" required>
+    <span class="ion-at form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback" ng-class="{ 'has-error' : users.registerForm.email.$invalid && users.registerForm.email.$dirty }">
+    <input class="form-control input-lg" type="text" id="email" name="email" ng-model="users.user.local.email" placeholder="Email" ng-model="users.user.local.email" required>
+    <span class="ion-at form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback" ng-class="{ 'has-error' : users.registerForm.password.$invalid && users.registerForm.password.$dirty }">
+    <input class="form-control input-lg" type="password" name="password" ng-model="users.user.local.password" placeholder="Password" ng-model="users.user.local.password" required>
+    <span class="ion-key form-control-feedback"></span>
+  </div>
+
+
+  <button type="submit" class="btn btn-block btn-primary">Sign up</button>
+  <br/>
+
+</form>

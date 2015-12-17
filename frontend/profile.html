@@ -5,9 +5,13 @@
     </h1>
   </div>
 </div>
+
+<button ng-if="users.currentUser._id === users.user._id" ui-sref="edit({id:users.user._id})">Edit</button>
+
 <ul>
   <li ng-repeat="song in users.user.local.songs">{{song.title}}</li>
 </ul>
+
 <div class="row">
   <div class="col-md-8">
     <img class="img-responsive" src="http://placehold.it/750x500" alt="">
