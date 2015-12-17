@@ -1,10 +1,10 @@
-<div ng-show="users.isLoggedIn()" class="">
+<h1>Songs</h1>
+Controller: {{ songs.controllerName }}
 
-<ul ng-controller="SongsController as songs">
+<ul>
   <li ng-repeat="song in songs.all" data-id="{{song._id}}">
     <strong>{{song.title}}</strong> 
     <em>{{song.genre}}</em>
     <em>{{song.bpm}}</em>
   </li>
 </ul>
-</div>

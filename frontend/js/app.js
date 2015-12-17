@@ -32,7 +32,23 @@ angular
       })
       .state('songs', {
         url: "/songs",
-        templateUrl: "songs.html"
+        templateUrl: "songs.html",
+        controller: "SongsController as songs"
+      })
+      .state('addSong', {
+        url: "/songs/new",
+        templateUrl: "addSong.html",
+        controller: "SongsController as songs"
+      })
+      .state('contests', {
+        url: "/contests",
+        templateUrl: "contests.html",
+        controller: "ContestsController as contests"
+      })
+      .state('addContest', {
+        url: "/contests/new",
+        templateUrl: "addContest.html",
+        controller: "ContestsController as contests"
       })
 
     $urlRouterProvider.otherwise("/");

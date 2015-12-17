@@ -1,7 +1,10 @@
+<h1>Users</h1>
+Controller: {{ users.controllerName }}
+
 <div ng-show="users.isLoggedIn()" class="">
-<ul id="users">
-  <li ng-repeat="user in users.all" data-id="{{user._id}}">
-    <strong>{{user.local.username}}</strong> <em>{{ user.local.email }}</em>
-  </li>
-</ul>
+  <ul id="users">
+    <li ng-repeat="user in users.all" data-id="{{user._id}}">
+      <strong>{{user.local.username}}</strong> <em>{{ user.local.email }}</em>
+    </li>
+  </ul>
 </div>

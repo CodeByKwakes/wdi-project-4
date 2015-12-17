@@ -15,23 +15,24 @@
   <script type="text/javascript" src="./js/app.js"></script>
   <script type="text/javascript" src="./js/services/tokenService.js"></script>
   <script type="text/javascript" src="./js/services/authInterceptor.js"></script>
+  <script type="text/javascript" src="./js/services/currentUser.js"></script>
   <script type="text/javascript" src="./js/models/user.js"></script>
   <script type="text/javascript" src="./js/models/song.js"></script>
   <script type="text/javascript" src="./js/controllers/usersController.js"></script>
   <script type="text/javascript" src="./js/controllers/songsController.js"></script>
+  <script type="text/javascript" src="./js/controllers/contestsController.js"></script>
 <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="stylesheet" type="text/css" href="./css/reset.css">
 
   <link rel="stylesheet" href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<!-- <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'> -->
 </head>
 <body class="container-fluid" ng-controller="UsersController as users">
 <!-- Header -->
 <header>
   <div class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container">
       <ul class="nav navbar-nav">
         <a ui-sref="home" class="navbar-brand"><i class="ion-headphone"></i>BeatSity</a>
         <li ng-hide="users.isLoggedIn()">
@@ -41,9 +42,20 @@
           <a ui-sref="register">Register</a>
         </li>
         <li ng-show="users.isLoggedIn()">
-          <a ui-sref-active="active" ui-sref="profile"> My Profile</a>
+          <a ui-sref-active="active" ui-sref="profile">My Profile</a>
         </li>
-
+        <li ng-show="users.isLoggedIn()">
+          <a ui-sref-active="active" ui-sref="songs">Songs</a>
+        </li>
+        <li ng-show="users.isLoggedIn()">
+          <a ui-sref-active="active" ui-sref="addSong">Add Song</a>
+        </li>
+        <li ng-show="users.isLoggedIn()">
+          <a ui-sref-active="active" ui-sref="contests">Contests</a>
+        </li>
+        <li ng-show="users.isLoggedIn()">
+          <a ui-sref-active="active" ui-sref="addContest">Add Contest</a>
+        </li>
         <li ng-show="users.isLoggedIn()">
           <a ui-sref-active="active" ui-sref="users">Users</a>
         </li>
