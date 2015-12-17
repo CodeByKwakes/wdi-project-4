@@ -1,19 +1,14 @@
 <h1>Add Contest</h1>
 Controller: {{ contests.controllerName }}
 
-<!-- title: String,
-details: String,
-rules: String,
+<!-- ,
+: String,
 parts: String,
-prizes: {
-  grand_prize: String,
-  runner_up: String,
-},
-schedule: {
-  submision_date: Date,
-  submision_deadline: Number,
-  results_date: Date,
-  results_deadline: Number,
+prizes.grand_prize:
+schedule.submision_date
+schedule.submision_deadline
+schedule.results_date
+schedule.results_deadline
 }, -->
 
 <div class="container">
@@ -24,7 +19,7 @@ schedule: {
       <form name="contests.addContestForm" ng-submit="contests.add()" novalidate>
         
         <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.title.$invalid && addContestForm.title.$dirty }">
-          <input server-error class="form-control input-lg" type="text" name="title" ng-model="contests.newContest.title" placeholder="Title" required autofocus>
+          <input server-error class="form-control input-lg" type="text" name="title" ng-model="contests.newContest.title" placeholder="Contest Title" required autofocus>
 
           <div class="help-block" ng-if="addContestForm.title.$dirty" ng-messages="addContestForm.title.$error">
             <div ng-message="required">Please enter a title</div>
@@ -32,34 +27,52 @@ schedule: {
           </div>
         </div>
 
-        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.image.$invalid && addContestForm.image.$dirty }">
-          <input server-error class="form-control input-lg" type="text" name="image" ng-model="contests.newContest.image" placeholder="Image" required autofocus>
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.details.$invalid && addContestForm.details.$dirty }">
+          <input server-error class="form-control input-lg" type="text" name="details" ng-model="contests.newContest.details" placeholder="Contest Details" required autofocus>
 
-          <div class="help-block" ng-if="addContestForm.image.$dirty" ng-messages="addContestForm.image.$error">
-            <div ng-message="required">Please enter a image</div>
-            <div ng-message="server">{{errorMessage.image}}</div>
+          <div class="help-block" ng-if="addContestForm.details.$dirty" ng-messages="addContestForm.details.$error">
+            <div ng-message="required">Please enter a details</div>
+            <div ng-message="server">{{errorMessage.details}}</div>
           </div>
         </div>
 
-        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.genre.$invalid && addContestForm.genre.$dirty }">
-          <input server-error class="form-control input-lg" type="text" name="genre" ng-model="contests.newContest.genre" placeholder="Genre" required autofocus>
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.rules.$invalid && addContestForm.rules.$dirty }">
+          <input server-error class="form-control input-lg" type="text" name="rules" ng-model="contests.newContest.rules" placeholder="Rules" required autofocus>
 
-          <div class="help-block" ng-if="addContestForm.genre.$dirty" ng-messages="addContestForm.genre.$error">
-            <div ng-message="required">Please enter a genre</div>
-            <div ng-message="server">{{errorMessage.genre}}</div>
+          <div class="help-block" ng-if="addContestForm.rules.$dirty" ng-messages="addContestForm.rules.$error">
+            <div ng-message="required">Please enter a rules</div>
+            <div ng-message="server">{{errorMessage.rules}}</div>
           </div>
         </div>
 
-        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.bpm.$invalid && addContestForm.bpm.$dirty }">
-          <input server-error class="form-control input-lg" type="text" name="bpm" ng-model="contests.newContest.bpm" placeholder="Bpm" required autofocus>
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.prizes.grand_prize.$invalid && addContestForm.prizes.grand_prize.$dirty }">
+          <input server-error class="form-control input-lg" type="text" name="grandPrize" ng-model="contests.newContest.prizes.grand_prize" placeholder="Grand Prize" required autofocus>
 
-          <div class="help-block" ng-if="addContestForm.bpm.$dirty" ng-messages="addContestForm.bpm.$error">
-            <div ng-message="required">Please enter a bpm</div>
-            <div ng-message="server">{{errorMessage.bpm}}</div>
+          <div class="help-block" ng-if="addContestForm.prizes.grand_prize.$dirty" ng-messages="addContestForm.prizes.grand_prize.$error">
+            <div ng-message="required">Please enter a Prizes</div>
+            <div ng-message="server">{{errorMessage.prizes.grand_prize}}</div>
           </div>
         </div>
 
-        <button type="submit" class="btn btn-block btn-success" ng-disabled="addContestForm.$invalid">Log in</button>
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.schedule.submision_date.$invalid && addContestForm.schedule.submision_date.$dirty }">
+          <input server-error class="form-control input-lg" type="date" name="grandPrize" ng-model="contests.newContest.schedule.submision_date" placeholder="Submission Date" required autofocus>
+
+          <div class="help-block" ng-if="addContestForm.schedule.submision_date.$dirty" ng-messages="addContestForm.schedule.submision_date.$error">
+            <div ng-message="required">Please enter a Submission Date</div>
+            <div ng-message="server">{{errorMessage.schedule.submision_date}}</div>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addContestForm.schedule.results_date.$invalid && addContestForm.schedule.results_date.$dirty }">
+          <input server-error class="form-control input-lg" type="date" name="grandPrize" ng-model="contests.newContest.schedule.results_date" placeholder="Result Date" required autofocus>
+
+          <div class="help-block" ng-if="addContestForm.schedule.results_date.$dirty" ng-messages="addContestForm.schedule.results_date.$error">
+            <div ng-message="required">Please enter a Result Date</div>
+            <div ng-message="server">{{errorMessage.schedule.results_date}}</div>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-block btn-success" ng-disabled="addContestForm.$invalid">Submit</button>
 
       </form>
     </div>

@@ -1,2 +1,14 @@
 <h1>Contests</h1>
 Controller: {{ contests.controllerName }}
+
+<ul>
+  <li ng-repeat="contest in contests.all" data-id="{{contest._id}}">
+    <strong>{{contest.title}}</strong> 
+    <em>{{contest.details}}</em>
+    <em>{{contest.rules}}</em>
+    <em>{{contest.prizes.grand_prize}}</em>
+    <em>{{contest.schedule.submision_date}}</em>
+    <em>{{contest.schedule.results_date}}</em>
+  </li>
+</ul>
+

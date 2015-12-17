@@ -30,16 +30,6 @@ router.route('/songs/:id')
   .put(songsController.songsUpdate)
   .delete(songsController.songsDelete)
 
-/*Client Routes
-router.route('/clients')
-  .get(clientsController.clientsIndex)
-  .post(clientsController.clientsCreate)
-
-router.route('/clients/:id')
-  .get(clientsController.clientsShow)
-  .put(clientsController.clientsUpdate)
-  .delete(clientsController.clientsDelete)*/
-
 // Contest Routes
 router.route('/contests')
   .get(contestsController.contestsIndex)
