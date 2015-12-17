@@ -15,6 +15,18 @@
         </div>
       </div> -->
 
+    <!--   <div class="form-group has-feedback">
+        <label for="username" class="col-lg-2 col-lg-offset-2 control-label">Username</label>
+        <div class="col-lg-4">
+          <input type="text" class="form-control" name="Username" id="inputEmail" placeholder="Username" ng-model="users.user.username">
+        </div>
+      </div> -->
+
+      <div class="form-group has-feedback">
+        <input class="form-control input-lg" type="text" id="username" name="username" ng-model="users.user.username" placeholder="username" required>
+        <span class="ion-at form-control-feedback"></span>
+      </div>
+
         <div class="form-group has-feedback" ng-class="{ 'has-error' : users.registerForm.email.$invalid && users.registerForm.email.$dirty }">
           <input class="form-control input-lg" type="text" id="email" name="email" ng-model="users.user.email" placeholder="Email" required>
           <span class="ion-at form-control-feedback"></span>
