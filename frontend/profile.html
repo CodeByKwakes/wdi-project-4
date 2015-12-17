@@ -1,53 +1,65 @@
-<h1>Profile</h1>
-Controller: {{ users.controllerName }}
+<div class="row" ng-show="users.isLoggedIn()">
+  <div class="col-lg-12">
+    <h1 class="page-header">{{ users.user.local.username | uppercase }}
+      <small>{{ users.user.local.role }}</small>
+    </h1>
+  </div>
+</div>
+<!-- /.row -->
+<!-- Portfolio Item Row -->
+<div class="row">
 
-<div class="container" ng-show="users.isLoggedIn()">
+  <div class="col-md-8">
+    <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-xs-6">
-          <img ng-src="{{users.user.local.image}}" class="img-responsive">
-        </div>
-
-        <div class="col-xs-6">
-          <div class="caption">
-            <h5>{{ users.user.local.username | uppercase }}</a></h5>
-
-            <p>{{ users.user.local.email }}</p>
-
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-xs-12">
-          <h5></h5>
-
-          <hr class="soften">
-          <h5 class="text-center"><i class="ion-chatbox-working text-primary"></i> Music</h5>
-
-          <ul class="media-list">
-            <li ng-repeat="comment in photo.comments.data" class="media">
-              <a class="pull-left" href="http://instagram.com/{{}}">
-                <img class="media-object img-rounded" ng-src="{{}}">
-              </a>
-              <div class="media-body">
-                <a class="media-heading" href="{{}}">{{}}</a>
-                {{}}
-              </div>
-            </li>
-            <li >No comments</li>
-          </ul>
-
-          <hr class="soften">
-
-        </div>
-      </div>
-
-    </div>
+  <div class="col-md-4">
+    <h3>Real Name: {{users.user.local.first_name}} {{users.user.local.last_name }}</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+    <h3>Project Details</h3>
+    <ul>
+      <li>{{ users.user.local.contact.website }}</li>
+      <li>{{ users.user.local.email }}</li>
+      <li>{{users.user.local.contact.location}}</li>
+      <li>{{users.user.local.contact.country}}</li>
+    </ul>
   </div>
 
 </div>
+<!-- /.row -->
+
+<!-- Related Projects Row -->
+<div class="row">
+
+  <div class="col-lg-12">
+    <h3 class="page-header">Related Projects</h3>
+  </div>
+
+  <div class="col-sm-3 col-xs-6">
+    <a href="#">
+      <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+    </a>
+  </div>
+
+  <div class="col-sm-3 col-xs-6">
+    <a href="#">
+      <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+    </a>
+  </div>
+
+  <div class="col-sm-3 col-xs-6">
+    <a href="#">
+      <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+    </a>
+  </div>
+
+  <div class="col-sm-3 col-xs-6">
+    <a href="#">
+      <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+    </a>
+  </div>
+
+</div>
+<!-- /.row -->
+
+<hr>
