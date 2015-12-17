@@ -50,6 +50,11 @@ angular
         templateUrl: "addContest.html",
         controller: "ContestsController as contests"
       })
+      .state('showContest', {
+        url: "/contests/show",
+        templateUrl: "showContest.html",
+        controller: "ContestsController as contests"
+      })
 
     $urlRouterProvider.otherwise("/");
   }

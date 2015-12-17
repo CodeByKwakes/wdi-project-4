@@ -15,5 +15,4 @@ function Contest($resource, API){
       'delete':    { method: 'DELETE' },
     }
   );
-
 }
