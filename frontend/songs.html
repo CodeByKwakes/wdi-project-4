@@ -1,13 +1,18 @@
 <h1>Songs</h1>
 <ul>
   <li ng-repeat="song in songs.all" data-id="{{song._id}}">
-    <div class="col-md-4 portfolio-item">
-      <a ui-sref="u">
-        <img class="img-responsive" src="http://lorempixel.com/400/200/people/1" alt="">
-      </a>
-      <h3><a ui-sref="">{{song.title}}</a></h3>
-      <p><em>{{song.genre}}</em></p>
-      <p><em><em>{{song.bpm}}</em></em></p>
+    <div class="row">
+     <div class="col-md-5">
+       <a href="#">
+         <img class="img-responsive" src="http://www.fillmurray.com/500/300">
+       </a>
+     </div>
+     <div class="col-md-7">
+       <h3><strong>Song Title: {{song.title}}</strong></h3>
+       <h4><em> Genre: {{song.genre}}</em></h4>
+       <p><em>BPM: {{song.bpm}}</em></p>
+     </div>
     </div>
+    <hr>
   </li>
 </ul>
