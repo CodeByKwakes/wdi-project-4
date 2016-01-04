@@ -12,53 +12,53 @@ angular
     $stateProvider
       .state('home', {
         url: "/",
-        templateUrl: "home.html"
+        templateUrl: "js/views/home.html"
       })
       .state('login', {
         url: "/login",
-        templateUrl: "login.html"
+        templateUrl: "js/views/login.html"
       })
       .state('register', {
         url: "/register",
-        templateUrl: "register.html"
+        templateUrl: "js/views/register.html"
       })
       .state('users', {
         url: "/users",
-        templateUrl: "users.html"
+        templateUrl: "js/views/users.html"
       })
       .state('profile', {
         url: "/users/:id",
-        templateUrl: "profile.html",
+        templateUrl: "js/views/profile.html",
         controller: "UsersController as users"
       })
       .state('edit', {
         url: "/users/:id/edit",
-        templateUrl: "userEdit.html",
+        templateUrl: "js/views/userEdit.html",
         controller: "UsersController as users"
       })
       .state('songs', {
         url: "/songs",
-        templateUrl: "songs.html",
+        templateUrl: "js/views/songs.html",
         controller: "SongsController as songs"
       })
       .state('addSong', {
         url: "/songs/new",
-        templateUrl: "addSong.html",
+        templateUrl: "js/views/addSong.html",
         controller: "SongsController as songs"
       })
       .state('contests', {
         url: "/contests",
-        templateUrl: "contests.html",
+        templateUrl: "js/views/contests.html",
         controller: "ContestsController as contests"
       })
       .state('addContest', {
         url: "/contests/new",
-        templateUrl: "addContest.html",
+        templateUrl: "js/views/addContest.html",
         controller: "ContestsController as contests"
       })
       .state('showContest', {
         url: "/contests/:id",
-        templateUrl: "showContest.html",
+        templateUrl: "js/views/showContest.html",
         controller: "ContestsController as contests"
       })
 
