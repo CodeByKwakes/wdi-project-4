@@ -1,12 +1,6 @@
 .headshot-card {
-    clear: none;
-    display: block;
     margin: 0px 0% 2% 0%;
-    overflow: hidden;
     padding: 0;
-    box-shadow: none;
-    background: none;
-    vertical-align: middle;
 }
 
 .headshot-card .details {
