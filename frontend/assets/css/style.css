@@ -1,0 +1,29 @@
+.headshot-card {
+    clear: none;
+    display: block;
+    margin: 0px 0% 2% 0%;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+    vertical-align: middle;
+}
+
+.headshot-card .details {
+    position: absolute;
+    color: #fff;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    text-shadow: 1px 1px 1px black;
+    font-size: .9em;
+}
+
+.headshot-card .display-name {
+    font-size: 1.5em;
+}
+
+.headshot-card .details_email {
+    padding-right: 25px;
+}

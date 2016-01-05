@@ -2,13 +2,25 @@
 <div class="row" ng-show="users.isLoggedIn()">
   <ul id="users">
     <li ng-repeat="user in users.all" data-id="{{user._id}}">
-      <div class="col-md-4 portfolio-item">
-        <a>
-          <img class="img-responsive" src="http://lorempixel.com/400/200/people" alt="">
+      <div class="col-md-3 col-sm-4 col-xs-6 headshot-card">
+        <a ui-sref="profile({id:user._id})" class="headshot ">
+          <img class="img-responsive" src="http://lorempixel.com/400/200/people">
+          <div class="details">
+            <h2 class="display-name">{{user.local.username}}</h2>
+            <div class="details_email">{{ user.local.email }}</div>
+          </div>
         </a>
-        <h3><a ui-sref="profile({id:user._id})">{{user.local.username}}</a></h3>
-        <p>{{ user.local.email }}</p>
       </div>
     </li>
   </ul>
 </div>
+
+
+
+<!-- <div class="col-md-4 portfolio-item">
+  <a>
+    <img class="img-responsive" src="http://lorempixel.com/400/200/people" alt="">
+  </a>
+  <h3><a ui-sref="profile({id:user._id})">{{user.local.username}}</a></h3>
+  <p>{{ user.local.email }}</p>
+</div> -->
