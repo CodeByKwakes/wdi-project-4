@@ -1,20 +1,23 @@
 <h1>Contests</h1>
-<ul>
-  <li ng-repeat="contest in contests.all" data-id="{{contest._id}}">
-    <div class="row">
-     <div class="col-md-7">
-       <a href="#">
-         <img class="img-responsive" src="http://lorempixel.com/400/200/technics" alt="">
-       </a>
-     </div>
-     <div class="col-md-5">
-       <h3><strong>{{contest.title}}</strong> </h3>
-       <h4><em>{{contest.prizes.grand_prize}}</em></h4>
-       <p><em>{{contest.details}}</em></p>
-       <a class="btn btn-primary" ui-sref="showContest({id:contest._id})">View Contest <span class="glyphicon glyphicon-chevron-right"></span></a>
-     </div>
-    </div>
-    <hr>
-  </li>
-</ul>
-
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th class="col-md-4"></th>
+			<th class="col-md-4 hidden-xs">Title</th>
+			<th class="col-md-4">Prize</th>
+			<th class="col-md-4">Details</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="contest in contests.all" data-id="{{contest._id}}">
+			<td class="col-md-4">
+				<a ui-sref="showContest({id:contest._id})">
+					<img class="img-responsive" src="http://lorempixel.com/400/200/technics" alt="">
+				</a>
+			</td>
+			<td class="col-md-4 hidden-xs">{{contest.title}}</td>
+			<td class="col-md-4">{{contest.prizes.grand_prize}}</td>
+			<td class="col-md-4">{{contest.details}}</td>
+		</tr>
+	</tbody>
+</table>
