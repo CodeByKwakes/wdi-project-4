@@ -31,6 +31,21 @@ angular
         templateUrl: "js/views/profile.html",
         controller: "UsersController as users"
       })
+      .state('profile.bio', {
+        url: "/bio",
+        templateUrl: "js/views/profile-bio.html",
+        controller: "UsersController as users"
+      })
+      .state('profile.playlist', {
+        url: "/playlist",
+        templateUrl: "js/views/profile-playlist.html",
+        controller: "UsersController as users"
+      })
+      .state('profile.contest', {
+        url: "/contest",
+        templateUrl: "js/views/profile-contest.html",
+        controller: "UsersController as users"
+      })
       .state('edit', {
         url: "/users/:id/edit",
         templateUrl: "js/views/userEdit.html",
