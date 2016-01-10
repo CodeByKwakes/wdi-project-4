@@ -1,4 +1,24 @@
 <h1>Songs</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Song Title</th>
+      <th>Genre</th>
+      <th>BPM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="song in songs.all" data-id="{{song._id}}">
+      <td><a href="#"><img class="img-responsive" src="http://www.fillmurray.com/500/300"></a></td>
+      <td>{{song.title}}</td>
+      <td>{{song.genre}}</td>
+      <td>{{song.bpm}}</td>
+   </tr>
+ </tbody>
+</table>
+
+<!-- 
 <ul>
   <li ng-repeat="song in songs.all" data-id="{{song._id}}">
     <div class="row">
@@ -15,4 +35,4 @@
     </div>
     <hr>
   </li>
-</ul>
+</ul> -->

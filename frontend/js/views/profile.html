@@ -1,12 +1,26 @@
-<div class="jumbotron" ng-show="users.isLoggedIn()">
+<div class="user-header-section">
   <div class="container">
-    <div class="col-md-8">
-      <img src="https://facehoff.herokuapp.com/300/300" class="img-responsive" alt="Image">
-    </div>
-    <div class="col-md-4">
-      <h1>{{ users.user.local.username | uppercase }}</h1>
-      <p>{{ users.user.local.role }}</p>
-      <button class="btn btn-primary" ng-if="users.currentUser._id === users.user._id" ui-sref="edit({id:users.user._id})"><i class="ion-gear-a"></i> Edit</button>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="user-header-wrap">
+          <div class="user-header-intro text-center">
+            <div class="col-md-4">
+              
+              <img src="https://facehoff.herokuapp.com/200/200" class="img-responsive" alt="Image">
+              
+            </div>
+            <div class="col-md-4 text-center">
+              
+              <span class="user-header-label">{{ users.user.local.username | uppercase }}</span>
+            </div>
+            <div class="col-md-4 text-center">
+              
+              <span class="user-header-label">{{ users.user.local.role }}</span>
+              <button class="btn btn-primary" ng-if="users.currentUser._id === users.user._id" ui-sref="edit({id:users.user._id})"><i class="ion-gear-a"></i> Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -20,6 +34,6 @@
       <li><a href="">Followers</a></li>
       <li><a href="">Following</a></li>
     </ul>
-  </div><!-- /.navbar-collapse -->
+  </div>
 </nav>
 <div ui-view></div>
