@@ -3,9 +3,10 @@
 	<thead>
 		<tr>
 			<th class="col-md-4"></th>
-			<th class="col-md-4 hidden-xs">Title</th>
-			<th class="col-md-4">Prize</th>
-			<th class="col-md-4">Details</th>
+			<th class="col-md-2 hidden-xs">Title</th>
+			<th class="col-md-2">Prize</th>
+			<th class="col-md-2">Details</th>
+			<th class="col-md-2">Date Added</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -15,9 +16,28 @@
 					<img class="img-responsive" src="http://lorempixel.com/400/200/technics" alt="">
 				</a>
 			</td>
-			<td class="col-md-4 hidden-xs">{{contest.title}}</td>
-			<td class="col-md-4">{{contest.prizes.grand_prize}}</td>
-			<td class="col-md-4">{{contest.details}}</td>
+			<td class="col-md-2 hidden-xs">{{contest.title}}</td>
+			<td class="col-md-2">{{contest.prizes.grand_prize}}</td>
+			<td class="col-md-2">{{contest.details}}</td>
+			<td class="col-md-2">{{contest.created_at | date}}</td>
 		</tr>
 	</tbody>
 </table>
+
+<article class="blog-item" ng-repeat="contest in contests.all" data-id="{{contest._id}}">
+	<div class="row">
+		<div class="col-md-6">
+			<a ui-sref="showContest({id:contest._id})">
+				<img src="http://lorempixel.com/400/200/technics" class="img-thumbnail center-block img-responsive" alt="Blog Post Thumbnail">
+			</a>
+		</div>
+		<div class="col-md-6">
+			<p>{{contest.prizes.grand_prize}}</p>
+			<h1>
+				<a ui-sref="showContest({id:contest._id})">
+					{{contest.title}}
+				</a>
+			</h1>
+		</div>
+	</div>
+</article>

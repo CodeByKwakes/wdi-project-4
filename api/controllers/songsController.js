@@ -29,16 +29,9 @@ function songsShow(req, res){
 }
 
 function songsUpdate(req, res){
-  Song.findById(req.params.id, function(err, song){
+  Song.findByIdAndUpdate(req.params.id, req.body, function(err, song){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
     if (!song) return res.status(404).json({ message: 'No Song Found???'});
-
-    if (req.body.title)      song.title       = req.body.title;
-    if (req.body.image)      song.image       = req.body.image;
-    if (req.body.genre)      song.genre       = req.body.genre;
-    if (req.body.bpm)        song.bpm         = req.body.bpm;
-    if (req.body.created_at) song.created_at  = req.body.created_at;
-    if (req.body.updated_at) song.updated_at  = req.body.updated_at;
 
     song.save(function(err){
       if (err) return res.status(500).json({ message: 'Something went wrong!!!'});

@@ -1,20 +1,20 @@
 <div class="user-header-section">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="user-header-wrap">
           <div class="user-header-intro text-center">
             <div class="col-md-4">
-              
+
               <img src="https://facehoff.herokuapp.com/200/200" class="img-responsive" alt="Image">
               
             </div>
             <div class="col-md-4 text-center">
-              
+
               <span class="user-header-label">{{ users.user.local.username | uppercase }}</span>
             </div>
             <div class="col-md-4 text-center">
-              
+
               <span class="user-header-label">{{ users.user.local.role }}</span>
               <button class="btn btn-primary" ng-if="users.currentUser._id === users.user._id" ui-sref="edit({id:users.user._id})"><i class="ion-gear-a"></i> Edit</button>
             </div>
@@ -28,11 +28,11 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a ui-sref-active="active" ui-sref=".bio">Bio</a></li>
-      <li><a ui-sref-active="active" ui-sref=".playlist">Playlist</a></li>
-      <li><a ui-sref-active="active" ui-sref=".contest">Contest</a></li>
-      <li><a href="">Followers</a></li>
-      <li><a href="">Following</a></li>
+      <li class="profile-nav"><a ui-sref-active="active" ui-sref=".bio">Bio</a></li>
+      <li class="profile-nav"><a ui-sref-active="active" ui-sref=".playlist">Playlist</a></li>
+      <li class="profile-nav"><a ui-sref-active="active" ui-sref=".contest">Contest</a></li>
+      <li class="profile-nav"><a href="">Followers</a></li>
+      <li class="profile-nav"><a href="">Following</a></li>
     </ul>
   </div>
 </nav>

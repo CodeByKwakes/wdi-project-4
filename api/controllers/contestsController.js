@@ -29,25 +29,9 @@ function contestsShow(req, res){
 }
 
 function contestsUpdate(req, res){
-  Contest.findById(req.params.id, function(err, contest){
+  Contest.findByIdAndUpdate(req.params.id, req.body, function(err, contest){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
     if (!contest) return res.status(404).json({ message: 'No Contest Found???'});
-
-    if (req.body.title)   contest.title   = req.body.title;
-    if (req.body.details) contest.details = req.body.details;
-    if (req.body.rules)   contest.rules   = req.body.rules;
-    if (req.body.parts)   contest.parts   = req.body.parts;
-
-    if (req.body.prizes.grand_prize) contest.prizes.grand_prize = req.body.prizes.grand_prize;
-    if (req.body.prizes.runner_up)   contest.prizes.runner_up   = req.body.prizes.runner_up;
-
-    if (req.body.schedule.submision_date) contest.schedule.submision_date   = req.body.schedule.submision_date;
-    if (req.body.schedule.submision_deadline)   contest.schedule.submision_deadline   = req.body.schedule.submision_deadline;
-    if (req.body.schedule.results_date)   contest.schedule.results_date   = req.body.schedule.results_date;
-    if (req.body.schedule.results_deadline)   contest.schedule.results_deadline   = req.body.schedule.results_deadline;
-
-    if (req.body.created_at) contest.created_at  = req.body.created_at;
-    if (req.body.updated_at) contest.updated_at  = req.body.updated_at;
 
     contest.save(function(err){
       if (err) return res.status(500).json({ message: 'Something went wrong!!!'});

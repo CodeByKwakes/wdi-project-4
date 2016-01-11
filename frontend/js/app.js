@@ -32,7 +32,7 @@ angular
         controller: "UsersController as users"
       })
       .state('profile.bio', {
-        url: "/bio",
+        url: "/",
         templateUrl: "js/views/profile-bio.html",
         controller: "UsersController as users"
       })
