@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var User = require('./user')
 
 var contestSchema = new mongoose.Schema({
   title: String,
@@ -15,8 +16,9 @@ var contestSchema = new mongoose.Schema({
     results_date: Date,
     results_deadline: Number,
   },
+  // entries:[{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   created_at: Date,
-  updated_at: Date,
+  updated_at: Date
 })
 
 module.exports = mongoose.model('Contest', contestSchema);

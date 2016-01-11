@@ -1,4 +1,5 @@
 var User    = require('../models/user');
+var Contest = require('../models/contest');
 
 function usersIndex(req, res){
   // User.find({ role: "user" })
@@ -13,6 +14,10 @@ function usersCreate(req, res){
 
   user.save(function(err, user){
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
+    Contest.findOne({_id: req.body.contest_id}, function(err, contest){
+      contest.entries.push(user);
+      contest.save();
+    });
     res.status(201).json({ message: 'A New User has been successfully created.', user: user})
   })
 }

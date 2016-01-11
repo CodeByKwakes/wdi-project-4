@@ -1,8 +1,8 @@
 var Contest = require('../models/contest');
-var User = require('../models/user');
+var User    = require('../models/user');
 
 function contestsIndex(req, res){
-  Contest.find(function(err, contests){
+  Contest.find({}).populate(['entries']).exec(function(err, contests){
     if (err) return res.status(404).json({message: 'Something went wrong!!'});
     res.status(200).json({ contests: contests });
   });
@@ -22,7 +22,7 @@ function contestsCreate(req, res){
 }
 
 function contestsShow(req, res){
-  Contest.findById(req.params.id, function(err, contest){
+  Contest.findById(req.params.id).populate(['entries']).exec(function(err, contest){
     if (err) return res.status(404).json({ message: 'Something went wrong!!'});
     res.status(200).json({ contest: contest});
   });
