@@ -16,28 +16,9 @@
       <td>{{song.title}}</td>
       <td>{{song.genre}}</td>
       <td>{{song.bpm}}</td>
-      <td>{{song.url}}</td>
-      <td>{{song}}</td>
+      <td><audio ng-src="{{song.url | trustUrl }}" controls></audio></td>
+      <td>{{song.artist.local.username}}</td>
       <!-- <td>{{users.user.local.username}}</td> -->
    </tr>
  </tbody>
 </table>
-
-<!-- 
-<ul>
-  <li ng-repeat="song in songs.all" data-id="{{song._id}}">
-    <div class="row">
-     <div class="col-md-5">
-       <a href="#">
-         <img class="img-responsive" src="http://www.fillmurray.com/500/300">
-       </a>
-     </div>
-     <div class="col-md-7">
-       <h3><strong>Song Title: {{song.title}}</strong></h3>
-       <h4><em> Genre: {{song.genre}}</em></h4>
-       <p><em>BPM: {{song.bpm}}</em></p>
-     </div>
-    </div>
-    <hr>
-  </li>
-</ul> -->

@@ -6,6 +6,14 @@ angular
     $httpProvider.interceptors.push('authInterceptor')
   })
 
+angular 
+  .module("BeatSity")
+  .filter("trustUrl", ['$sce', function ($sce) {
+    return function (recordingUrl) {
+    return $sce.trustAsResourceUrl(recordingUrl);
+    };
+}]);
+
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function MainRouter($stateProvider, $urlRouterProvider) {

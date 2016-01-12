@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var User = require('./user')
 
 var songSchema = new mongoose.Schema({
-  artist:[{ type: mongoose.Schema.ObjectId, ref: 'User' }],
+  artist: { type: mongoose.Schema.ObjectId, ref: 'User' },
   title: String,
   image: String,
   genre: String,

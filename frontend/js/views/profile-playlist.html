@@ -1,6 +1,29 @@
 <!-- Playlist -->
-<div class="col-md-4">
-  <ul>
-    <li ng-repeat="song in users.user.local.songs">{{song.title}} {{song.url}}</li>
-  </ul>
-</div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Song Title</th>
+        <th>Genre</th>
+        <th>BPM</th>
+        <th>Song</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="song in users.user.local.songs">
+        <td>
+          <img class="img-responsive" src="http://www.fillmurray.com/500/300">
+        </td>
+        <td>{{song.title}}</td>
+        <td>{{song.genre}}</td>
+        <td>{{song.bpm}}</td>
+        <td>{{song.url}}</td>
+     </tr>
+   </tbody>
+  </table>
+
+
+
+<!-- <ul>
+  <li ng-repeat="song in users.user.local.songs">{{song.title}} {{song.url}}</li>
+</ul> -->

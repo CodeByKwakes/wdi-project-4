@@ -21,7 +21,7 @@ function SongsController(Song, $state, currentUser){
   }
 
   function add(){
-    self.newSong.user_id = self.currentUser._id;
+    self.newSong.artist = self.currentUser._id;
     Song.save(self.newSong, function(data){
       $state.go("songs");
     })
