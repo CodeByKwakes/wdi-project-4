@@ -2,16 +2,19 @@ var Song      = require('../models/song');
 var User  = require('../models/user');
 
 function songsIndex(req, res){
-  Song.find(function(err, songs){
+  Song.find({}).populate(['artist']).exec(function(err, songs){
     if (err) return res.status(404).json({message: 'Something went wrong!!'});
     res.status(200).json({ songs: songs });
   });
 }
 
 function songsCreate(req, res){
+
+  console.log(req.body);
   var song = new Song(req.body)
 
   song.save(function(err, song){
+    console.log(song);
     if (err) return res.status(500).json({ message: 'Something went wrong!!'});
     User.findOne({_id: req.body.user_id}, function(err, user){
       user.local.songs.push(song);

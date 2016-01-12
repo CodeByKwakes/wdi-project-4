@@ -44,6 +44,16 @@ Controller: {{ songs.controllerName }}
           </div>
         </div>
 
+        <div class="form-group has-feedback" ng-class="{ 'has-error': addSongForm.bpm.$invalid && addSongForm.url.$dirty }">
+          <input server-error class="form-control input-lg" type="text" name="url" ng-model="songs.newSong.url" placeholder="Url" required autofocus>
+
+          <div class="help-block" ng-if="addSongForm.url.$dirty" ng-messages="addSongForm.url.$error">
+            <div ng-message="required">Please enter a url</div>
+            <div ng-message="server">{{errorMessage.url}}</div>
+          </div>
+        </div>
+
+
         <button type="submit" class="btn btn-success" ng-disabled="addSongForm.$invalid">Log in</button>
 
       </form>

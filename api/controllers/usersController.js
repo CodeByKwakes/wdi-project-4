@@ -1,5 +1,6 @@
 var User    = require('../models/user');
 var Contest = require('../models/contest');
+var Song = require('../models/song');
 
 function usersIndex(req, res){
   // User.find({ role: "user" })
@@ -17,6 +18,10 @@ function usersCreate(req, res){
     Contest.findOne({_id: req.body.contest_id}, function(err, contest){
       contest.entries.push(user);
       contest.save();
+    });
+    Song.findOne({_id: req.body.song_id}, function(err, contest){
+      song.artist.push(user);
+      song.save();
     });
     res.status(201).json({ message: 'A New User has been successfully created.', user: user})
   })

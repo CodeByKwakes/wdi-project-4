@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
+var Song = require('./song')
 
 var userSchema = new mongoose.Schema({
   local: {

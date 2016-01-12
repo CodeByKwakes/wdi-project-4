@@ -16,7 +16,7 @@ var contestSchema = new mongoose.Schema({
     results_date: Date,
     results_deadline: Number,
   },
-  // entries:[{ type: mongoose.Schema.ObjectId, ref: 'User'}],
+  // entries:[{ type: mongoose.Schema.ObjectId, ref: 'Song'}],
   created_at: Date,
   updated_at: Date
 })
