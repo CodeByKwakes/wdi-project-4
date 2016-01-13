@@ -1,17 +1,32 @@
 <div ng-show="users.isLoggedIn()">
-  <div class="jumbotron">
-    <h1><i class="ion-headphone"></i>BeatSity</h1>
-  </div>
+  <header class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h1 class="brand-heading"><i class="ion-headphone"></i>BeatSity</h1>
+            <p class="intro-text">The New Music Website for both Producer looking for jobs <strong>and</strong> clients and Clients looking for music.</p>
+            <a class="btn btn-lg btn-success" ui-sref="profile({id:users.currentUser._id})"><i class="ion-log-in"></i> Back to you profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 </div>
 
 <div ng-hide="users.isLoggedIn()">
-  <div class="jumbotron">
-    <h1><i class="ion-headphone"></i>BeatSity</h1>
-    <p>The New Music Website for both Producer looking for jobs <strong>and</strong> clients and Clients looking for music.<br/>To continue, please log in  or create a new email account.</p>
-    <p>
-      <a class="btn btn-lg btn-success" ui-sref="login"><i class="ion-log-in"></i> Log in</a>
-      <a class="btn btn-lg btn-primary" ui-sref="register"><i class="ion-person-add"></i> Create account</a>
-    </p>
-  </div>
+  <header class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h1 class="brand-heading"><i class="ion-headphone"></i>BeatSity</h1>
+            <p class="intro-text">The New Music Website for both Producer looking for jobs <strong>and</strong> clients and Clients looking for music.<br>To continue, please log in  or create a new email account.</p>
+            <a class="btn btn-lg btn-success" ui-sref="login"><i class="ion-log-in"></i> Log in</a>
+            <a class="btn btn-lg btn-primary" ui-sref="register"><i class="ion-person-add"></i> Create account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 </div>
-
